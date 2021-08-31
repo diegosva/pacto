@@ -71,21 +71,6 @@ if ($EJECUTADO2) {
                 
             </form>
         </div>    
-
-        <div class="col2">
-            <form class="form-horizontal" action="php_action/removeHoja.php" method="POST">
-                <div class="row" >
-                    <div class="col-ms-12" >
-                        <input type="hidden" value="' . $hojaId . '" class="form-control" name="idHoja" id="idHoja" > 
-                        <button type="submit" class="btn btn-danger" > Eliminar Hoja de Campo </button>
-                    </div>
-
-                   
-                    
-                </div>
-            
-            </form>
-        </div> 
         
     </div>
         ';

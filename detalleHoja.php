@@ -850,6 +850,8 @@ while ($row = $EJECUTADO->fetch_array()) {
 
 						<div class="sub" id="subtotal2" style="display:none">
 
+							<p style="font-weight: bold;">Observaciones:</p>
+
 							<textarea name="DESC" id="" cols="165" rows="10" class="form-control" ></textarea>
 
 							<div class="alert alert-warning" role="alert">
