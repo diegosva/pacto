@@ -38,7 +38,6 @@
 							<th>Sector</th>
                             <th>Barrio</th>
 							<th>Parroquia</th>
-                            <th>Logo</th>
                             <th>Status</th>
 							<th style="width:15%;">Opciones</th>
 						</tr>

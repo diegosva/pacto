@@ -8,6 +8,7 @@ if($_POST) {
 
     $NOMBREUSU = $_POST['editUsersName'];
     $EMAILUSU = $_POST['editUsersEmail']; 
+	$CEDULAUSU = $_POST['editUsersCedula']; 
     $TELCUSU = $_POST['editUsersTelf']; 
     $TELCELUSU = $_POST['editUsersTelc']; 
     $CONTRAUSU = $_POST['editUsersContra']; 
@@ -16,7 +17,7 @@ if($_POST) {
 	$STATUSUSU = $_POST['editUsersStatus']; 
     $usersId = $_POST['editUsersId']; 
 
-	$sql = "UPDATE USUARIO SET NOMBREUSU = '$NOMBREUSU', EMAILUSU = '$EMAILUSU', TELCUSU =  '$TELCUSU', TELCELUSU =  '$TELCELUSU', CONTRAUSU =  '$CONTRAUSU', DIRUSU = '$DIRUSU', NOMBREAPEUSU = '$NOMBREAPEUSU',STATUSUSU = '$STATUSUSU' WHERE USUARIOID = $usersId ";
+	$sql = "UPDATE USUARIO SET NOMBREUSU = '$NOMBREUSU', EMAILUSU = '$EMAILUSU', TELCUSU =  '$TELCUSU', TELCELUSU =  '$TELCELUSU', CONTRAUSU =  '$CONTRAUSU', DIRUSU = '$DIRUSU', NOMBREAPEUSU = '$NOMBREAPEUSU',STATUSUSU = '$STATUSUSU',CEDULAUSU='$CEDULAUSU' WHERE USUARIOID = $usersId ";
 
 	if($connect->query($sql) === TRUE) {
 	 	$valid['success'] = true;

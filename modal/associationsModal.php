@@ -44,16 +44,8 @@
 				    </div>
 	        </div> <!-- /form-group-->	
 
-            <div class="form-group">
-	        	<label for="LOGOASO" class="col-sm-4 control-label">Logo de la asociación : </label>
 
-				    <div class="col-sm-7">
-				      <input type="text" class="form-control" id="LOGOASO" placeholder="Introduce el logo" name="LOGOASO" autocomplete="off" value="El Administrador sube el logo" readonly>
-				    </div>
-	        </div> <!-- /form-group-->	
-
-       
-
+    
 
 	        <div class="form-group">
 	        	<label for="STATUSASO" class="col-sm-4 control-label">Estado de la Asociación : </label>
@@ -129,17 +121,11 @@
 					      <input type="text" class="form-control" id="editAssociationsParroquia" placeholder="Parroquia de la asociación" name="editAssociationsParroquia" autocomplete="off">
 					    </div>
 		        </div> <!-- /form-group-->		
-				<div class="form-group">
-		        	<label for="editAssociationsLogo" class="col-sm-4 control-label">Logo: </label>
-		        	<label class="col-sm-1 control-label">: </label>
-					    <div class="col-sm-7">
-					      <input type="text" class="form-control" id="editAssociationsLogo" placeholder="Logo de la asociación" name="editAssociationsLogo" autocomplete="off">
-					    </div>
-		        </div> <!-- /form-group-->					
+							
 
 				<div class="form-group">
 		        	<label for="editAssociationsStatus" class="col-sm-4 control-label">Estado: </label>
-		
+					<label class="col-sm-1 control-label">: </label>
 					    <div class="col-sm-7">
 					      <select class="form-control" id="editAssociationsStatus" name="editAssociationsStatus">
 							<option value="1">Disponible</option>

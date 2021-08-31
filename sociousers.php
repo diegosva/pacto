@@ -13,12 +13,7 @@ if ($aux != 1) {
 }
 
 ?>
-<style>
-	.table2{
-		padding-top: 30px;
-		max-width: fit-content;
-	}
-</style>
+
 
 <?php require_once 'php_action/db_connect.php' ?>
 <?php require_once 'includes/SocioHeader.php'; ?>
@@ -48,10 +43,6 @@ if ($aux != 1) {
 					<button class="btn btn-default button1" data-toggle="modal" id="addUsersModalBtn" data-target="#addUsersModal"> <i class="fas fa-plus"></i> Agregar Socios </button>
 				</div> <!-- /div-action -->
 
-				<div class="div-action pull pull-right" style="padding-bottom:20px; padding-left:20px;">
-					<a class="btn btn-default button1" type="button" data-toggle="modal" id="cateModalBtn" data-target="#addCateModal"> <i class="fas fa-plus"></i> Agregar Categorías</a>
-				</div> <!-- /div-action -->
-
 
 				<div class="div-action pull pull-right" style="padding-bottom:20px; padding-left:20px;">
 					<a class="btn btn-default button1" type="button" data-toggle="modal" id="editSocioModalBtn" data-target="#editSocioModal" onclick="editAsociacion(<?php echo $aux2; ?>)"> <i class="fas fa-tools"></i> Cambiar nombre asociación</a>
@@ -65,13 +56,11 @@ if ($aux != 1) {
 
 
 
-
-
-
 				<table class="table" id="manageUsersSocioTable">
 					<thead>
 						<tr>
 							<th>Nombre</th>
+							<th>Cédula</th>
 							<th>Nombre Usuario</th>
 							<th>Email</th>
 							<th>Teléfono</th>
@@ -84,6 +73,28 @@ if ($aux != 1) {
 						</tr>
 					</thead>
 				</table>
+
+
+				<!-- /table -->
+
+			</div> <!-- /panel-body -->
+
+
+		</div> <!-- /panel -->
+
+		<div class="panel  panel-default">
+			<div class="panel-heading">
+
+				<div class="page-heading"> <i class="glyphicon glyphicon-edit"></i> Listado de Categorías</div>
+			</div> <!-- /panel-heading -->
+
+			<div class="panel-body">
+
+				<div class="remove-messages"></div>
+				<div class="div-action pull pull-right" style="padding-bottom:20px; padding-left:20px;">
+					<a class="btn btn-default button1" type="button" data-toggle="modal" id="cateModalBtn" data-target="#addCateModal"> <i class="fas fa-plus"></i> Agregar Categorías</a>
+				</div> <!-- /div-action -->
+
 
 				<div class="table2">
 
@@ -100,15 +111,9 @@ if ($aux != 1) {
 					</table>
 
 				</div>
+			</div>
+		</div> <!-- /col-md-12 -->
 
-
-
-				<!-- /table -->
-
-			</div> <!-- /panel-body -->
-
-
-		</div> <!-- /panel -->
 	</div> <!-- /col-md-12 -->
 </div> <!-- /row -->
 

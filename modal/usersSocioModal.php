@@ -29,6 +29,14 @@
 						</div>
 					</div> <!-- /form-group-->
 
+					<div class="form-group">
+						<label for="CEDULAUSU" class="col-sm-4 control-label">Cédula : </label>
+
+						<div class="col-sm-7">
+							<input type="text" class="form-control" id="CEDULAUSU" placeholder="Introduce cédula de Usuario" name="CEDULAUSU" autocomplete="off">
+						</div>
+					</div> <!-- /form-group-->
+
 
 					<div class="form-group">
 						<label for="EMAILUSU" class="col-sm-4 control-label">Email : </label>
@@ -85,7 +93,6 @@
 
 
 
-
 				</div> <!-- /modal-body -->
 
 				<div class="modal-footer">
@@ -121,7 +128,7 @@
 
 					<div class="edit-socio-result">
 						<div class="form-group">
-							<label for="editUsersName" class="col-sm-4 control-label">Nombre Completo : </label>
+							<label for="editUsersName" class="col-sm-4 control-label">Nombre de usuario : </label>
 
 							<div class="col-sm-7">
 								<input type="text" class="form-control" id="editUsersName" placeholder="Nombre de Completo" name="editUsersName" autocomplete="off">
@@ -133,6 +140,14 @@
 
 							<div class="col-sm-7">
 								<input type="text" class="form-control" id="editUsersNomApe" placeholder="Nombre y Apellido" name="editUsersNomApe" autocomplete="off">
+							</div>
+						</div> <!-- /form-group-->
+
+						<div class="form-group">
+							<label for="editUsersCedula" class="col-sm-4 control-label">Cédula: </label>
+
+							<div class="col-sm-7">
+								<input type="text" class="form-control" id="editUsersCedula" placeholder="Cédula" name="editUsersCedula" autocomplete="off">
 							</div>
 						</div> <!-- /form-group-->
 

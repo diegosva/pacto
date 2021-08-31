@@ -2,7 +2,7 @@
 
 require_once 'core.php';
 
-$sql = "SELECT ASOCIACIONID, NOMBREASO, SECTORASO, BARRIOASO ,PARROQUIAASO, LOGOASO, STATUSASO FROM asociacion";
+$sql = "SELECT ASOCIACIONID, NOMBREASO, SECTORASO, BARRIOASO ,PARROQUIAASO, STATUSASO FROM asociacion";
 $result = $connect->query($sql);
 
 $output = array('data' => array());
@@ -18,7 +18,7 @@ if($result->num_rows > 0) {
 
  	// active 
      
- 	if($row[6] == 1) {
+ 	if($row[5] == 1) {
  		// activate member
  		$activeAssociations = "<label class='label label-success'>Disponibles</label>";
  	} else {
@@ -46,8 +46,7 @@ if($result->num_rows > 0) {
          $row[1],
          $row[2],
          $row[3],
-         $row[4],
-         $row[5],	
+         $row[4],	
  		$activeAssociations,
  		$button 		
  		); 	

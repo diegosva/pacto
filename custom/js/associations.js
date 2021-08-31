@@ -1,17 +1,17 @@
 var manageAssociationsTable;
 
-$(document).ready(function() {
+$(document).ready(function () {
 	// active top navbar categories
-	$('#navAssociations').addClass('active');	
+	$('#navAssociations').addClass('active');
 
 	manageAssociationsTable = $('#manageAssociationsTable').DataTable({
-		'ajax' : 'php_action/fetchAssociations.php',
+		'ajax': 'php_action/fetchAssociations.php',
 		'order': [],
 		"scrollX": true
 	}); // manage categories Data Table
 
 	// on click on submit categories form modal
-	$('#addAssociationsModalBtn').unbind('click').bind('click', function() {
+	$('#addAssociationsModalBtn').unbind('click').bind('click', function () {
 		// reset the form text
 		$("#submitAssociationsForm")[0].reset();
 		// remove the error text
@@ -20,114 +20,106 @@ $(document).ready(function() {
 		$('.form-group').removeClass('has-error').removeClass('has-success');
 
 		// submit categories form function
-		$("#submitAssociationsForm").unbind('submit').bind('submit', function() {
+		$("#submitAssociationsForm").unbind('submit').bind('submit', function () {
 
 			var NOMBREASO = $("#NOMBREASO").val();
-			var SECTORASO  = $("#SECTORASO").val();
-            var BARRIOASO = $("#BARRIOASO").val();
+			var SECTORASO = $("#SECTORASO").val();
+			var BARRIOASO = $("#BARRIOASO").val();
 			var PARROQUIAASO = $("#PARROQUIAASO").val();
-            var LOGOASO = $("#LOGOASO").val();
+
 			var STATUSASO = $("#STATUSASO").val();
 
-			
 
-			if(NOMBREASO == "") {
+
+			if (NOMBREASO == "") {
 				$("#NOMBREASO").after('<p class="text-danger">Este campo es obligatorio</p>');
 				$('#NOMBREASO').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
 				$("#NOMBREASO").find('.text-danger').remove();
 				// success out for form 
-				$("#NOMBREASO").closest('.form-group').addClass('has-success');	  	
+				$("#NOMBREASO").closest('.form-group').addClass('has-success');
 			}
 
-            
-			if(SECTORASO == "") {
+
+			if (SECTORASO == "") {
 				$("#SECTORASO").after('<p class="text-danger">Este campo es obligatorio</p>');
 				$('#SECTORASO').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
 				$("#SECTORASO").find('.text-danger').remove();
 				// success out for form 
-				$("#SECTORASO").closest('.form-group').addClass('has-success');	  	
+				$("#SECTORASO").closest('.form-group').addClass('has-success');
 			}
 
-            if(BARRIOASO == "") {
+			if (BARRIOASO == "") {
 				$("#BARRIOASO").after('<p class="text-danger">Este campo es obligatorio</p>');
 				$('#BARRIOASO').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
 				$("#BARRIOASO").find('.text-danger').remove();
 				// success out for form 
-				$("#BARRIOASO").closest('.form-group').addClass('has-success');	  	
+				$("#BARRIOASO").closest('.form-group').addClass('has-success');
 			}
 
-            if(PARROQUIAASO == "") {
+			if (PARROQUIAASO == "") {
 				$("#PARROQUIAASO").after('<p class="text-danger">Este campo es obligatorio</p>');
 				$('#PARROQUIAASO').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
 				$("#PARROQUIAASO").find('.text-danger').remove();
 				// success out for form 
-				$("#PARROQUIAASO").closest('.form-group').addClass('has-success');	  	
+				$("#PARROQUIAASO").closest('.form-group').addClass('has-success');
 			}
 
-            if(LOGOASO == "") {
-				$("#LOGOASO").after('<p class="text-danger">Este campo es obligatorio</p>');
-				$('#LOGOASO').closest('.form-group').addClass('has-error');
-			} else {
-				// remov error text field
-				$("#LOGOASO").find('.text-danger').remove();
-				// success out for form 
-				$("#LOGOASO").closest('.form-group').addClass('has-success');	  	
-			}
 
-            if(STATUSASO == "") {
+
+			if (STATUSASO == "") {
 				$("#STATUSASO").after('<p class="text-danger">Este campo es obligatorio</p>');
 				$('#STATUSASO').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
 				$("#STATUSASO").find('.text-danger').remove();
 				// success out for form 
-				$("#STATUSASO").closest('.form-group').addClass('has-success');	  	
+				$("#STATUSASO").closest('.form-group').addClass('has-success');
 			}
 
-			if(NOMBREASO && SECTORASO && BARRIOASO && PARROQUIAASO && LOGOASO && STATUSASO) {
+			if (NOMBREASO && SECTORASO && BARRIOASO && PARROQUIAASO && STATUSASO) {
 				var form = $(this);
 				// button loading
 				$("#createAssociationsBtn").button('loading');
 
 				$.ajax({
-					url : form.attr('action'),
+					url: form.attr('action'),
 					type: form.attr('method'),
 					data: form.serialize(),
 					dataType: 'json',
-					success:function(response) {
+					success: function (response) {
 						// button loading
 						$("#createAssociationsBtn").button('reset');
 
-						if(response.success == true) {
+						if (response.success == true) {
 							// reload the manage member table 
-							manageAssociationsTable.ajax.reload(null, false);						
+							manageAssociationsTable.ajax.reload(null, false);
 
-	  	  			// reset the form text
+							// reset the form text
 							$("#submitAssociationsForm")[0].reset();
 							// remove the error text
 							$(".text-danger").remove();
 							// remove the form error
 							$('.form-group').removeClass('has-error').removeClass('has-success');
-	  	  			
-	  	  			$('#add-associations-messages').html('<div class="alert alert-success">'+
-					'<button type="button" class="close" data-dismiss="alert">&times;</button>'+
-					'<strong><i class="glyphicon glyphicon-ok-sign"></i></strong> '+ response.messages +
-					'</div>');
 
-	  	  			$(".alert-success").delay(500).show(10, function() {
-								$(this).delay(3000).hide(10, function() {
+							$('#add-associations-messages').html('<div class="alert alert-success">' +
+								'<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+								'<strong><i class="glyphicon glyphicon-ok-sign"></i></strong> ' + response.messages +
+								'</div>');
+
+							$(".alert-success").delay(500).show(10, function () {
+								$(this).delay(3000).hide(10, function () {
 									$(this).remove();
 								});
 							}); // /.alert
-						}  // if
+						} // if
 
 					} // /success
 				}); // /ajax	
@@ -143,7 +135,7 @@ $(document).ready(function() {
 // edit categories function
 // /edit categories function // /edit categories function
 function editAssociations(associationsId = null) {
-	if(associationsId) {
+	if (associationsId) {
 		// remove the added categories id 
 		$('#editAssociationsId').remove();
 		// reset the form text
@@ -160,135 +152,129 @@ function editAssociations(associationsId = null) {
 		// modal result
 		$('.edit-associations-result').addClass('div-hide');
 		//modal footer
-		$(".editAssociationsFooter").addClass('div-hide');		
+		$(".editAssociationsFooter").addClass('div-hide');
 
 		$.ajax({
 			url: 'php_action/fetchSelectedAssociations.php',
 			type: 'post',
-			data: {associationsId: associationsId},
+			data: {
+				associationsId: associationsId
+			},
 			dataType: 'json',
-			success:function(response) {
+			success: function (response) {
 
 				// modal spinner
 				$('.modal-loading').addClass('div-hide');
 				// modal result
 				$('.edit-associations-result').removeClass('div-hide');
 				//modal footer
-				$(".editAssociationsFooter").removeClass('div-hide');	
+				$(".editAssociationsFooter").removeClass('div-hide');
 
 				// set the categories name
 				$("#editAssociationsName").val(response.NOMBREASO);
 				$("#editAssociationsSector").val(response.SECTORASO);
 				$("#editAssociationsBarrio").val(response.BARRIOASO);
 				$("#editAssociationsParroquia").val(response.PARROQUIAASO);
-				$("#editAssociationsLogo").val(response.LOGOASO);
+
 				$("#editAssociationsStatus").val(response.STATUSASO);
 				// add the categories id 
-				$(".editAssociationsFooter").after('<input type="hidden" name="editAssociationsId" id="editAssociationsId" value="'+response.ASOCIACIONID+'" />');
+				$(".editAssociationsFooter").after('<input type="hidden" name="editAssociationsId" id="editAssociationsId" value="' + response.ASOCIACIONID + '" />');
 
 
 				// submit of edit categories form
-				$("#editAssociationsForm").unbind('submit').bind('submit', function() {
+				$("#editAssociationsForm").unbind('submit').bind('submit', function () {
 					var NOMBREASO = $("#editAssociationsName").val();
 					var SECTORASO = $("#editAssociationsSector").val();
 					var BARRIOASO = $("#editAssociationsBarrio").val();
 					var PARROQUIAASO = $("#editAssociationsParroquia").val();
-					var LOGOASO = $("#editAssociationsLogo").val();
+
 					var STATUSASO = $("#editAssociationsStatus").val();
 
 
-					if(NOMBREASO == "") {
+					if (NOMBREASO == "") {
 						$("#editAssociationsName").after('<p class="text-danger">Este campo es obligatorio</p>');
 						$('#editAssociationsName').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
 						$("#editAssociationsName").find('.text-danger').remove();
 						// success out for form 
-						$("#editAssociationsName").closest('.form-group').addClass('has-success');	  	
+						$("#editAssociationsName").closest('.form-group').addClass('has-success');
 					}
 
-					if(SECTORASO == "") {
+					if (SECTORASO == "") {
 						$("#editAssociationsSector").after('<p class="text-danger">Este campo es obligatorio</p>');
 						$('#editAssociationsSector').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
 						$("#editAssociationsSector").find('.text-danger').remove();
 						// success out for form 
-						$("#editAssociationsSector").closest('.form-group').addClass('has-success');	  	
+						$("#editAssociationsSector").closest('.form-group').addClass('has-success');
 					}
-					if(BARRIOASO == "") {
+					if (BARRIOASO == "") {
 						$("#editAssociationsBarrio").after('<p class="text-danger">Este campo es obligatorio</p>');
 						$('#editAssociationsBarrio').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
 						$("#editAssociationsBarrio").find('.text-danger').remove();
 						// success out for form 
-						$("#editAssociationsBarrio").closest('.form-group').addClass('has-success');	  	
+						$("#editAssociationsBarrio").closest('.form-group').addClass('has-success');
 					}
-					if(PARROQUIAASO == "") {
+					if (PARROQUIAASO == "") {
 						$("#editAssociationsParroquia").after('<p class="text-danger">Este campo es obligatorio</p>');
 						$('#editAssociationsParroquia').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
 						$("#editAssociationsParroquia").find('.text-danger').remove();
 						// success out for form 
-						$("#editAssociationsParroquia").closest('.form-group').addClass('has-success');	  	
+						$("#editAssociationsParroquia").closest('.form-group').addClass('has-success');
 					}
-					if(LOGOASO == "") {
-						$("#editAssociationsLogo").after('<p class="text-danger">Este campo es obligatorio</p>');
-						$('#editAssociationsLogo').closest('.form-group').addClass('has-error');
-					} else {
-						// remov error text field
-						$("#editAssociationsLogo").find('.text-danger').remove();
-						// success out for form 
-						$("#editAssociationsLogo").closest('.form-group').addClass('has-success');	  	
-					}
-					if(STATUSASO == "") {
+
+					if (STATUSASO == "") {
 						$("#editAssociationsStatus").after('<p class="text-danger">Este campo es obligatorio</p>');
 						$('#editAssociationsStatus').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
 						$("#editAssociationsStatus").find('.text-danger').remove();
 						// success out for form 
-						$("#editAssociationsStatus").closest('.form-group').addClass('has-success');	  	
+						$("#editAssociationsStatus").closest('.form-group').addClass('has-success');
 					}
 
 
 
-					if(NOMBREASO && SECTORASO && BARRIOASO && PARROQUIAASO && LOGOASO && STATUSASO) {
+					if (NOMBREASO && SECTORASO && BARRIOASO && PARROQUIAASO && STATUSASO) {
 						var form = $(this);
 						// button loading
 						$("#editAssociationsBtn").button('loading');
 
 						$.ajax({
-							url : form.attr('action'),
+							url: form.attr('action'),
 							type: form.attr('method'),
 							data: form.serialize(),
 							dataType: 'json',
-							success:function(response) {
+							success: function (response) {
 								// button loading
 								$("#editAssociationsBtn").button('reset');
 
-								if(response.success == true) {
+								if (response.success == true) {
 									// reload the manage member table 
-									manageAssociationsTable.ajax.reload(null, false);									  	  			
-									
+									manageAssociationsTable.ajax.reload(null, false);
+
 									// remove the error text
 									$(".text-danger").remove();
 									// remove the form error
 									$('.form-group').removeClass('has-error').removeClass('has-success');
-			  	  			
-			  	  			$('#edit-associations-messages').html('<div class="alert alert-success">'+
-			            '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
-			            '<strong><i class="glyphicon glyphicon-ok-sign"></i></strong> '+ response.messages +
-				          '</div>');
 
-			  	  			$(".alert-success").delay(500).show(10, function() {
-										$(this).delay(3000).hide(10, function() {
+									$('#edit-associations-messages').html('<div class="alert alert-success">' +
+										'<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+										'<strong><i class="glyphicon glyphicon-ok-sign"></i></strong> ' + response.messages +
+										'</div>');
+
+									$(".alert-success").delay(500).show(10, function () {
+										$(this).delay(3000).hide(10, function () {
 											$(this).remove();
 										});
 									}); // /.alert
-								}  // if
+								} // if
 
 							} // /success
 						}); // /ajax	
@@ -312,61 +298,65 @@ function editAssociations(associationsId = null) {
 
 // remove categories function
 function removeAssociations(associationsId = null) {
-		
+
 	$.ajax({
 		url: 'php_action/fetchSelectedAssociations.php',
 		type: 'post',
-		data: {associationsId: associationsId},
+		data: {
+			associationsId: associationsId
+		},
 		dataType: 'json',
-		success:function(response) {			
+		success: function (response) {
 
 			// remove categories btn clicked to remove the categories function
-			$("#removeAssociationsBtn").unbind('click').bind('click', function() {
+			$("#removeAssociationsBtn").unbind('click').bind('click', function () {
 				// remove categories btn
 				$("#removeAssociationsBtn").button('loading');
 
 				$.ajax({
 					url: 'php_action/removeAssociations.php',
 					type: 'post',
-					data: {associationsId: associationsId},
+					data: {
+						associationsId: associationsId
+					},
 					dataType: 'json',
-					success:function(response) {
-						if(response.success == true) {
- 							// remove categories btn
+					success: function (response) {
+						if (response.success == true) {
+							// remove categories btn
 							$("#removeAssociationsBtn").button('reset');
 							// close the modal 
 							$("#removeAssociationsModal").modal('hide');
 							// update the manage categories table
 							manageAssociationsTable.ajax.reload(null, false);
 							// udpate the messages
-							$('.remove-messages').html('<div class="alert alert-success">'+
-	            '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
-	            '<strong><i class="glyphicon glyphicon-ok-sign"></i></strong> '+ response.messages +
-		          '</div>');
+							$('.remove-messages').html('<div class="alert alert-success">' +
+								'<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+								'<strong><i class="glyphicon glyphicon-ok-sign"></i></strong> ' + response.messages +
+								'</div>');
 
-	  	  			$(".alert-success").delay(500).show(10, function() {
-								$(this).delay(3000).hide(10, function() {
+							$(".alert-success").delay(500).show(10, function () {
+								$(this).delay(3000).hide(10, function () {
 									$(this).remove();
 								});
 							}); // /.alert
- 						} else {
- 							// close the modal 
+						} else {
+							// close the modal 
 							$("#removeAssociationsModal").modal('hide');
 
- 							// udpate the messages
-							$('.remove-messages').html('<div class="alert alert-success">'+
-	            '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
-	            '<strong><i class="glyphicon glyphicon-ok-sign"></i></strong> '+ response.messages +
-		          '</div>');
+							// udpate the messages
+							$('.remove-messages').html('<div class="alert alert-success">' +
+								'<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+								'<strong><i class="glyphicon glyphicon-ok-sign"></i></strong> ' + response.messages +
+								'</div>');
 
-	  	  			$(".alert-success").delay(500).show(10, function() {
-								$(this).delay(3000).hide(10, function() {
+							$(".alert-success").delay(500).show(10, function () {
+								$(this).delay(3000).hide(10, function () {
 									$(this).remove();
 								});
 							}); // /.alert
- 						} // /else
-						
-						
+						} // /else
+
+
 					} // /success function
 				}); // /ajax function request server to remove the categories data
 			}); // /remove categories btn clicked to remove the categories function
