@@ -7,6 +7,14 @@
 		<ol class="breadcrumb">
 		  <li><a href="asodashboard.php">Inicio</a></li>		  
 		  <li class="active">Mantenimiento Maquinaria</li>
+		  <li>
+		  <?php $manid=$_GET["manid"];?>
+		  <?php $query=mysqli_query($connect,"SELECT NOMBREMAQ FROM MAQUINARIASOCIO WHERE MAQUINARIAID=$manid");?> <?php 
+						while ($entidad = mysqli_fetch_array($query)){ ?>
+							<?php echo $entidad['NOMBREMAQ'];
+						}
+						?>
+		</li>
 		</ol>
 		<div class="panel panel-default">
 			<div class="panel-heading">
