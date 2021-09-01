@@ -21,24 +21,6 @@ $(document).ready(function () {
 		// remove the form error
 		$('.form-group').removeClass('has-error').removeClass('has-success');
 
-		// $.ajax({
-		// 	type: 'POST',
-		// 	url: 'php_action/validateUsers.php',
-		// 	data: {
-
-		// 	},
-		// 	dataType: 'json',
-		// 	success: function (resultado) {
-		// 		$(".nombreusu").after('<input type="hidden" name="editUsersId" id="nombreusu" value="' + response.NOMBREUSU + '" />');
-
-		// 	},
-		// 	error: function (resultado) {
-		// 		console.log("Error buscarDatos: " + resultado);
-		// 	}
-		// });
-
-
-
 		// submit categories form function
 		$("#submitUsersForm").unbind('submit').bind('submit', function () {
 

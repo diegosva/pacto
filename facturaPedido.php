@@ -26,18 +26,20 @@ $sql = "SELECT
 	PRODUCTO.PRECIOPRODUCT AS PRECIOPRODUCT, 
 	PRODUCTO.PVPPRODUCT AS PVPPRODUCT,
 	PEDIDOS.FECHAPEDIDO AS FECHAPEDIDO,
-	ESTADOPEDIDO.NOMBREESPE AS NOMBREESPE
-	FROM DETALLEFACTURA, PEDIDOS, PRODUCTO, ASOCIACION, PERTENECEN, USUARIO ,ESTADOPEDIDO
+	ESTADOPEDIDO.NOMBREESPE AS NOMBREESPE,
+	UNIDADES.NOMUNIDADES AS UNIDADES
+	FROM DETALLEFACTURA, PEDIDOS, PRODUCTO, ASOCIACION, PERTENECEN, USUARIO ,ESTADOPEDIDO,UNIDADES
 	WHERE DETALLEFACTURA.PEDIDOSID = PEDIDOS.PEDIDOSID  
 	AND DETALLEFACTURA.PRODUCTOID = PRODUCTO.PRODUCTOID 
-	AND PRODUCTO.PERTENECENID = PERTENECEN.PERTENECENID 
+	AND PRODUCTO.ASOCIACIONID = ASOCIACION.ASOCIACIONID 
 	AND PEDIDOS.USUARIOID = USUARIO.USUARIOID 
 	AND PEDIDOS.ESTADOPEDIDOID=ESTADOPEDIDO.ESTADOPEDIDOID
-	AND PERTENECEN.ASOCIACIONID = $ASOID
+	AND UNIDADES.UNIDADESID=PRODUCTO.UNIDADESID
+	AND PRODUCTO.ASOCIACIONID = $ASOID
 	AND PEDIDOS.STATUSPEDIDO = 1
 	AND DETALLEFACTURA.PEDIDOSID=$DETALLEID
 	GROUP BY PRODUCTO.PRODUCTOID";
-$r = mysqli_query($connect, $sql) or die("Error al leer ");
+$r = mysqli_query($connect, $sql) or die("Error al leer detalle ");
 
 
 ?>
@@ -76,6 +78,7 @@ $r = mysqli_query($connect, $sql) or die("Error al leer ");
 						<tr>
 							<th>Producto</th>
 							<th>Cantidad</th>
+							<th>Unidades</th>
 							<th>Precio</th>
 							<th>PVP</th>
 
@@ -97,12 +100,15 @@ $r = mysqli_query($connect, $sql) or die("Error al leer ");
 							$PEDIDOSID = $fila['PEDIDOID'];
 							$NOMPRODUCT = $fila['NOMPRODUCT'];
 							$CANTIDAD = $fila['CANTIDAD'];
-							$PRECIOPRODUCT = $fila['PRECIOPRODUCT'];
 							$PVPPRODUCT = $fila['PVPPRODUCT'];
+							$PRECIOPRODUCT = $fila['PRECIOPRODUCT'];
+							$UNIDADES = $fila['UNIDADES'];
+
 						?>
 							<tr>
 								<td><?php echo $NOMPRODUCT; ?></td>
 								<td><?php echo $CANTIDAD; ?></td>
+								<td><?php echo $UNIDADES; ?></td>
 								<td><?php echo $PRECIOPRODUCT; ?></td>
 								<td><?php echo $PVPPRODUCT; ?></td>
 
@@ -169,7 +175,9 @@ $r = mysqli_query($connect, $sql) or die("Error al leer ");
 					<input type="text" value="<?php echo $RUTA ?>" style="display:none" name="LOGOASO">
 					<input type="text" value="<?php echo $PEDIDOSID ?>" name="PEDIDOSID" style="display:none">
 					<input type="text" value="<?php echo $DETALLEID ?>" name="DETALLEID" style="display:none">
+					<input type="text" value="<?php echo $UNIDADES ?>" name="UNIDADES" style="display:none">
 					<input class="form-control" type="text" value="<?php echo $ASONOM ?> " name="ASONOM" style="display:none">
+					
 
 					<div class="container" style="display: flex;justify-content:center">
 

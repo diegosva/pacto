@@ -11,7 +11,7 @@ if ($aux != 2) {
 ?>
 <?php require_once 'php_action/db_connect.php' ?>
 <?php require_once 'includes/SocioHeader.php'; ?>
-<?php require_once 'modal/productModal.php'; ?>
+<?php require_once 'modal/bodegaModal.php'; ?>
 
 
 <div class="row">
@@ -19,12 +19,12 @@ if ($aux != 2) {
 
 		<ol class="breadcrumb">
 			<li><a href="asodashboard.php">Inicio</a></li>
-			<li class="active">Productos</li>
+			<li class="active">Detalle Bodega</li>
 		</ol>
 
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<div class="page-heading"> <i class="glyphicon glyphicon-edit"></i> Listado de productos</div>
+				<div class="page-heading"> <i class="glyphicon glyphicon-edit"></i> Detalle Bodega</div>
 			</div> <!-- /panel-heading -->
 			<div class="panel-body">
 
@@ -33,21 +33,25 @@ if ($aux != 2) {
 				<div class="remove-messages"></div>
 
 				<div class="div-action pull pull-right" style="padding-bottom:20px;">
-					<button class="btn btn-default button1" data-toggle="modal" id="addProductModalBtn" data-target="#addProductModal"> <i class="glyphicon glyphicon-plus-sign"></i> Agregar producto </button>
+					<button class="btn btn-default button1" data-toggle="modal" id="adddetalleBodegaModalBtn" data-target="#adddetalleBodegaModal"> <i class="glyphicon glyphicon-plus-sign"></i> Agregar Producto </button>
 				</div> <!-- /div-action -->
 
-				<table class="table  table-striped" id="manageProductTable">
+
+					<?php
+					 $bodegaId = $_POST['detallebodega'];
+					?>
+		
+
+
+				<table class="table  table-striped" id="managedetalleBodegaTable">
 					<thead>
 						<tr>
-							<th>Producto</th>
-							<th>Unidades</th>
-							<th>Categoría</th>
+							<th>Nombre Producto</th>
+						
 							<th>Descripción</th>
-							<th>Precio</th>
-							<th>PVP</th>
-							<th>Stock</th>
-							<th>Status Disponibilidad</th>
-							<th>Status</th>
+							<th>Cantidad de Producto</th>
+							<th>Unidades</th>
+							<th>Precio(USD)</th>
 							<th style="width:15%;">Opciones</th>
 						</tr>
 					</thead>
@@ -60,10 +64,9 @@ if ($aux != 2) {
 </div> <!-- /row -->
 
 
+<script> var bodegaId='<?php echo $bodegaId ?>'; </script>
 
 
-
-
-<script src="custom/js/product.js"></script>
+<script src="custom/js/bodega.js"></script>
 
 <?php require_once 'includes/footer.php'; ?>

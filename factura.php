@@ -27,17 +27,20 @@ $sql = "SELECT
     DETALLEFACTURA.TOTALPRODUCT AS TOTALPRODUCT,
     PRODUCTO.DESCRIPCIONPRODUCT AS DESCRIPCIONPRODUCT,
     COUNT(DETALLEFACTURA.PEDIDOSID) AS PEDIDOIDCOUNT, 
-	ESTADOPEDIDO.NOMBREESPE AS NOMBREESPE
-	FROM DETALLEFACTURA, PEDIDOS, PRODUCTO, ASOCIACION, PERTENECEN, USUARIO ,ESTADOPEDIDO
+	ESTADOPEDIDO.NOMBREESPE AS NOMBREESPE,
+    UNIDADES.NOMUNIDADES AS UNIDADES
+	FROM DETALLEFACTURA, PEDIDOS, PRODUCTO, ASOCIACION, PERTENECEN, USUARIO ,ESTADOPEDIDO,UNIDADES
 	WHERE DETALLEFACTURA.PEDIDOSID = PEDIDOS.PEDIDOSID  
 	AND DETALLEFACTURA.PRODUCTOID = PRODUCTO.PRODUCTOID 
-	AND PRODUCTO.PERTENECENID = PERTENECEN.PERTENECENID 
+    AND PRODUCTO.ASOCIACIONID = ASOCIACION.ASOCIACIONID 
 	AND PEDIDOS.USUARIOID = USUARIO.USUARIOID 
 	AND PEDIDOS.ESTADOPEDIDOID=ESTADOPEDIDO.ESTADOPEDIDOID
+    AND UNIDADES.UNIDADESID=PRODUCTO.UNIDADESID
 	AND PERTENECEN.ASOCIACIONID = $ASOID
 	AND PEDIDOS.STATUSPEDIDO = 1
 	AND DETALLEFACTURA.PEDIDOSID=$DETALLEID
 	GROUP BY PRODUCTO.PRODUCTOID";
+
 $r = mysqli_query($connect, $sql) or die("Error al leer ");
 $r2 = mysqli_query($connect, $sql) or die("Error al leer ");
 
@@ -59,6 +62,7 @@ $ASONOM = $_POST['ASONOM'];
 $SECTORASO = $_POST['SECTORASO'];
 $BARRIOASO = $_POST['BARRIOASO'];
 $PARROQUIAASO = $_POST['PARROQUIAASO'];
+$UNIDADES = $_POST['UNIDADES'];
 
 ?>
 
@@ -136,7 +140,7 @@ $pdf->setX(135);
 $pdf->Ln();
 /////////////////////////////
 //// Array de Cabecera
-$header = array("Producto", "Descripcion", "Cant.", "Precio", "Total");
+$header = array("Producto", "Descripcion", "Cant.", "Uds.", "Precio", "Total");
 //// Arrar de Productos
 $i = 0;
 
@@ -151,12 +155,14 @@ while ($fila = $r->fetch_assoc()) {
     $NOMPRODUCT = $fila['NOMPRODUCT'];
     $PRECIOPRODUCT = $fila['PRECIOPRODUCT'];
     $TOTALPRODUCT = $fila['TOTALPRODUCT'];
+    $UNIDADES = $fila['UNIDADES'];
+    
 
-    $products[$i] = array($NOMPRODUCT, $DESCRIPCIONPRODUCT, $CANTIDAD, $PRECIOPRODUCT);
+    $products[$i] = array($NOMPRODUCT, $DESCRIPCIONPRODUCT, $CANTIDAD ,$UNIDADES, $PRECIOPRODUCT );
     $i++;
 }
 // Column widths
-$w = array(40, 75, 20, 25, 25);
+$w = array(40, 75, 10, 10, 25,25);
 // Header
 for ($i = 0; $i < count($header); $i++)
     $pdf->Cell($w[$i], 7, $header[$i], 1, 0, 'C');
@@ -167,11 +173,12 @@ foreach ($products as $row) {
     $pdf->Cell($w[0], 6, $row[0], 1);
     $pdf->Cell($w[1], 6, $row[1], 1);
     $pdf->Cell($w[2], 6, number_format($row[2]), '1', 0, 'R');
-    $pdf->Cell($w[3], 6, "$ " . number_format($row[3], 2, ".", ","), '1', 0, 'R');
-    $pdf->Cell($w[4], 6, "$ " . number_format($row[3] * $row[2], 2, ".", ","), '1', 0, 'R');
+    $pdf->Cell($w[3], 6, $row[3], 1);
+    $pdf->Cell($w[4], 6, "$ " . number_format($row[4], 2, ".", ","), '1', 0, 'R');
+    $pdf->Cell($w[5], 6, "$ " . number_format($row[4] * $row[2], 2, ".", ","), '1', 0, 'R');
 
     $pdf->Ln();
-    $total += $row[3] * $row[2];
+    $total += $row[4] * $row[2];
     $impuesto = $total * 0.12;
 }
 /////////////////////////////

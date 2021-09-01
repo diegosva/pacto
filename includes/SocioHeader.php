@@ -135,6 +135,7 @@
           <li id="navMaq"><a href="maquinaria.php"> <i class="fas fa-tractor"></i> Maquinaria</a></li>
           <li id="navReuniones"><a href="reuniones.php"><i class="far fa-calendar-times"></i> Reuniones</a></li>
           <li id="navProduct"><a href="product.php"> <i class="fas fa-box-open"></i> Productos</a></li>
+          <li id="navBodega"><a href="bodega.php"> <i class="fas fa-cubes"></i> Bodega</a></li>
           <li id="navpedidosAdmin"><a href="pedidosAdmin.php"><i class="fas fa-store-alt"></i> Pedidos</a></li>
           <li id="navSocioUsers"><a href="sociousers.php"> <i class="fas fa-users"></i> Administración </a></li>
           <li class="dropdown" id="navSetting">

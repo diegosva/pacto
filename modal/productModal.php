@@ -31,7 +31,24 @@
 						<?php $query=mysqli_query($connect,"SELECT CATEGORIAID,NOMCAT FROM CATEGORIAPRODUCTO");?>
 						<?php 
 						while ($cat = mysqli_fetch_array($query)){ ?>
-							<option value='<?php echo $cat['CATEGORIAID'];?>'  > <?php echo $cat['NOMCAT'];?></option><br>
+							<option value='<?php echo $cat['CATEGORIAID'];?>'> <?php echo $cat['NOMCAT'];?></option><br>
+						<?php    
+						}
+						?>
+						</select>
+				    </div>
+	        </div> <!-- /form-group-->
+			
+
+			<div class="form-group">
+	        	<label for="UNIDADESID" class="col-sm-3 control-label">Unidades : </label>
+				    <div class="col-sm-8">
+						<select name="UNIDADESID" id="UNIDADESID" class="form-control">
+						<option value=""> -- Selecciona --</option>
+						<?php $query=mysqli_query($connect,"SELECT UNIDADESID,NOMUNIDADES FROM UNIDADES");?>
+						<?php 
+						while ($uni = mysqli_fetch_array($query)){ ?>
+							<option value='<?php echo $uni['UNIDADESID'];?>'  > <?php echo $uni['NOMUNIDADES'];?></option><br>
 						<?php    
 						}
 						?>

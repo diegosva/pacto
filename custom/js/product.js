@@ -29,6 +29,7 @@ $(document).ready(function() {
 			var DESCRIPCIONPRODUCT = $("#DESCRIPCIONPRODUCT").val();
 			var PRECIOPRODUCT = $("#PRECIOPRODUCT").val();
 			var STOCKPRODUCT = $("#STOCKPRODUCT").val();
+			var UNIDADESID = $("#UNIDADESID").val();
 	
 			if(NOMPRODUCT == "") {
 				$("#NOMPRODUCT").closest('.center-block').after('<p class="text-danger">Este campo es obligatorio</p>');
@@ -39,6 +40,7 @@ $(document).ready(function() {
 				// success out for form 
 				$("#NOMPRODUCT").closest('.form-group').addClass('has-success');	  	
 			}	// /else
+
 
 			if(CATEGORIAID == "") {
 				$("#CATEGORIAID").after('<p class="text-danger">Este campo es obligatorio</p>');
@@ -80,9 +82,20 @@ $(document).ready(function() {
 				$("#STOCKPRODUCT").closest('.form-group').addClass('has-success');	  	
 			}	// /else
 
+			
+			if(UNIDADESID == "") {
+				$("#UNIDADESID").closest('.center-block').after('<p class="text-danger">Este campo es obligatorio</p>');
+				$('#UNIDADESID').closest('.form-group').addClass('has-error');
+			}	else {
+				// remov error text field
+				$("#UNIDADESID").find('.text-danger').remove();
+				// success out for form 
+				$("#UNIDADESID").closest('.form-group').addClass('has-success');	  	
+			}	// /else
+
 	
 
-			if(NOMPRODUCT && CATEGORIAID && DESCRIPCIONPRODUCT && PRECIOPRODUCT  && STOCKPRODUCT  ) {
+			if(NOMPRODUCT && CATEGORIAID && DESCRIPCIONPRODUCT && PRECIOPRODUCT  && STOCKPRODUCT && UNIDADESID ) {
 				var form = $(this);
 				// button loading
 				$("#createProductBtn").button('loading');

@@ -1,3 +1,20 @@
+<head>
+	<link rel="icon" href="assests/recursos/pacto-logo.png" type="image/png" />
+</head>
+<style>
+
+	body {
+		background-image: url(/pacto/assests/recursos/fondo-pacto-2.jpg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-size: cover;
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		font-family: 'Raleway', sans-serif;
+	}
+</style>
+
 <?php 
 require_once 'php_action/db_connect.php';
 
@@ -61,12 +78,12 @@ if($_POST) {
 
             if($TELEFONO==$telefono){
                 $contador ++;
-                $errors[0] = "El telefono convencional ya está registrado";
+                $errors[0] = "El teléfono convencional ya está registrado";
             }
 
             if($CELULAR==$celular){
                 $contador ++;
-                $errors[0] = "El telefono celular ya está registrado";
+                $errors[0] = "El teléfono celular ya está registrado";
             }
 
             if($CEDULA==$cedula){
@@ -96,7 +113,7 @@ if($_POST) {
             
             $connect->close();
             $errors[0] = "Usuario añadido con exito.  \nRedirigiendo a la página de inicio...";
-            header( "refresh:3;url=index.php" ); 
+            header( "refresh:2;url=index.php" ); 
 
            
         }

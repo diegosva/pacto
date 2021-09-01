@@ -40,8 +40,9 @@
 							<th>Descripción</th>
 							<th>Precio</th>
 							<th>PVP</th>
-                            
+							<th>Unidad</th>
 							<th style="width:16%;">Cantidad</th>
+							
 						</tr>
 					</thead>
 				</table>

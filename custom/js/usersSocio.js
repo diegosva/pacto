@@ -123,6 +123,7 @@ $(document).ready(function () {
 			var DIRUSU = $("#DIRUSU").val();
 			var NOMBREAPEUSU = $("#NOMBREAPEUSU").val();
 			var CONTRAUSURE = $("#CONTRAUSURE").val();
+			var CEDULAUSU = $("#CEDULAUSU").val();
 
 
 			if (NOMBREUSU == "") {
@@ -134,6 +135,17 @@ $(document).ready(function () {
 				// success out for form 
 				$("#NOMBREUSU").closest('.form-group').addClass('has-success');
 			}
+
+			if (CEDULAUSU == "") {
+				$("#CEDULAUSU").after('<p class="text-danger">Este campo es obligatorio</p>');
+				$('#CEDULAUSU').closest('.form-group').addClass('has-error');
+			} else {
+				// remov error text field
+				$("#CEDULAUSU").find('.text-danger').remove();
+				// success out for form 
+				$("#CEDULAUSU").closest('.form-group').addClass('has-success');
+			}
+
 
 
 

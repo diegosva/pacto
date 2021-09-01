@@ -2,6 +2,18 @@
 	<link rel="icon" href="assests/recursos/pacto-logo.png" type="image/png" />
 </head>
 
+<style>
+	body {
+		background-image: url(/pacto/assests/recursos/fondo-pacto-2.jpg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-size: cover;
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		font-family: 'Raleway', sans-serif;
+	}
+</style>
 <?php
 
 
