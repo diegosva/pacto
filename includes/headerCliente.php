@@ -3,9 +3,10 @@
 <html>
 
 <head>
+  <link rel="icon" href="assests/recursos/pacto-logo.png" type="image/png" />
 
   <title>Pacto</title>
-  <link  rel="icon"   href="../assests/recursos/pacto-logo.png" type="image/png" />
+
   <!-- bootstrap -->
   <link rel="stylesheet" href="assests/bootstrap/css/bootstrap.min.css">
   <!-- bootstrap theme-->
@@ -32,24 +33,30 @@
 
   <!-- bootstrap js -->
   <script src="assests/bootstrap/js/bootstrap.min.js"></script>
-<!-- Roboto -->
-<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <!-- Roboto -->
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
   <style>
-    body {font-family: 'Roboto', sans-serif;}
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
     .container {
       display: flex;
       width: 100%;
       justify-content: center;
       align-items: center;
     }
-    .col1{
-      width:40%;
+
+    .col1 {
+      width: 40%;
     }
-    .navbar-header{
-      width:20%;
+
+    .navbar-header {
+      width: 20%;
     }
-    .row{
+
+    .row {
       width: 60%;
     }
   </style>
@@ -71,7 +78,7 @@
     <div class="container">
 
       <div class="col1">
-        <h4 style="font-weight: bold; text-transform:uppercase" > <i class="fas fa-tree"></i> Bienvenido <?php echo $USUNOM ?></h4>
+        <h4 style="font-weight: bold; text-transform:uppercase"> <i class="fas fa-tree"></i> Bienvenido <?php echo $USUNOM ?></h4>
       </div>
 
       <div class="navbar-header">

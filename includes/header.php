@@ -4,9 +4,10 @@
 
 <head>
 
+  <link rel="icon" href="assests/recursos/pacto-logo.png" type="image/png" />
+
   <title>Pacto</title>
 
-  <link  rel="icon"   href="../assests/recursos/pacto-logo.png" type="image/png" />
 
   <!-- bootstrap -->
   <link rel="stylesheet" href="assests/bootstrap/css/bootstrap.min.css">
@@ -59,6 +60,8 @@
       width: 60%;
     }
   </style>
+
+
 </head>
 
 <body>

@@ -1,4 +1,12 @@
+<head>
+	<link rel="icon" href="assests/recursos/pacto-logo.png" type="image/png" />
+</head>
+
 <?php
+
+
+
+
 require_once 'php_action/db_connect.php';
 
 session_start();

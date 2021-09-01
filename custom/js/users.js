@@ -25,7 +25,7 @@ $(document).ready(function () {
 		// 	type: 'POST',
 		// 	url: 'php_action/validateUsers.php',
 		// 	data: {
-	
+
 		// 	},
 		// 	dataType: 'json',
 		// 	success: function (resultado) {
@@ -55,8 +55,6 @@ $(document).ready(function () {
 			var CONTRAUSURE = $("#CONTRAUSURE").val();
 			var ASOSIACIONID = $("#ASOSIACIONID").val();
 
-
-			
 
 			if (NOMBREUSU == "") {
 				$("#NOMBREUSU").after('<p class="text-danger">Este campo es obligatorio</p>');

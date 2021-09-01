@@ -3,9 +3,10 @@
 <html>
 
 <head>
+  <link rel="icon" href="assests/recursos/pacto-logo.png" type="image/png" />
 
   <title>Pacto</title>
-  <link  rel="icon"   href="../assests/recursos/pacto-logo.png" type="image/png" />
+
   <!-- bootstrap -->
   <link rel="stylesheet" href="assests/bootstrap/css/bootstrap.min.css">
   <!-- bootstrap theme-->
@@ -61,6 +62,7 @@
     #col2 {
       width: 40%;
     }
+
     .box img {
       width: 20%;
       height: auto;
