@@ -25,7 +25,7 @@
 					<button class="btn btn-default button1" data-toggle="modal" id="addReunionesModalBtn" data-target="#addReunionesModal"> <i class="glyphicon glyphicon-plus-sign"></i> Agregar reunión </button>
 				</div> <!-- /div-action -->				
 				
-				<table class="table" id="manageReunionesTable">
+				<table class="table  table-striped" id="manageReunionesTable">
 					<thead>
 						<tr>	
 													

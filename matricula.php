@@ -24,7 +24,7 @@
 					<button class="btn btn-default button1" data-toggle="modal" data-target="#addBrandModel"><i class="glyphicon glyphicon-plus-sign"></i> Inscribir Usuario </button>
 				</div> <!-- /div-action -->				
 				
-				<table class="table" id="manageBrandTable">
+				<table class="table  table-striped" id="manageBrandTable">
                     <thead>
                         <tr>
                             <th>Nombre</th>

@@ -32,7 +32,7 @@
 
 				<div class="remove-messages"></div>	  		
 				
-				<table class="table" id="managepedidosAdminTable">
+				<table class="table  table-striped" id="managepedidosAdminTable">
 					<thead>
 						<tr>						
 							<th>Nombre y Apellido</th>

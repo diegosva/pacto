@@ -31,7 +31,7 @@
 
 				<div class="remove-messages"></div>	  		
 				
-				<table class="table" id="managepedidosClienteTable">
+				<table class="table  table-striped" id="managepedidosClienteTable">
 					<thead>
 						<tr>						
 							<th>Asociación</th>		

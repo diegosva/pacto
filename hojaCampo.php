@@ -35,7 +35,7 @@ if ($aux != 3) {
 					<a class="btn btn-default button1" href="php_action/crearHoja.php"> <i class="glyphicon glyphicon-plus-sign"></i> Agregar Hoja de Campo </a>
 				</div> <!-- /div-action -->
 
-				<table class="table" id="manageHojaTable">
+				<table class="table  table-striped" id="manageHojaTable">
 					<thead>
 						<tr>
 							<th>Hoja de Campo(ID)</th>

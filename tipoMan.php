@@ -18,7 +18,7 @@
 					<button class="btn btn-default button1" data-toggle="modal" id="addMaqModalBtn" data-target="#addMaqModal"> <i class="glyphicon glyphicon-plus-sign"></i> Agregar Tipo de Mantenimiento </button>
 				</div> <!-- /div-action -->				
 				
-				<table class="table" id="manageMaqTable">
+				<table class="table  table-striped" id="manageMaqTable">
 					<thead>
 						<tr>
 							<th>Tipo Mantenimiento</th>						

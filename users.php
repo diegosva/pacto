@@ -34,7 +34,7 @@
 				</div> <!-- /div-action -->		
 						
 
-				<table class="table" id="manageUsersTable">
+				<table class="table table-striped" id="manageUsersTable">
 					<thead >
 						<tr>							
 							<th>Usuario</th>

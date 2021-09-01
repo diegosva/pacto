@@ -36,7 +36,7 @@ if ($aux != 2) {
 					<button class="btn btn-default button1" data-toggle="modal" id="addProductModalBtn" data-target="#addProductModal"> <i class="glyphicon glyphicon-plus-sign"></i> Agregar producto </button>
 				</div> <!-- /div-action -->
 
-				<table class="table" id="manageProductTable">
+				<table class="table  table-striped" id="manageProductTable">
 					<thead>
 						<tr>
 							<th>Nombre Socio</th>

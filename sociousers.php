@@ -56,7 +56,7 @@ if ($aux != 1) {
 
 
 
-				<table class="table" id="manageUsersSocioTable">
+				<table class="table  table-striped" id="manageUsersSocioTable">
 					<thead>
 						<tr>
 							<th>Nombre</th>

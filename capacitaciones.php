@@ -27,7 +27,7 @@
 					
 				</div> <!-- /div-action -->				
 				
-				<table class="table" id="manageBrandTable">
+				<table class="table  table-striped" id="manageBrandTable">
                     <thead>
                         <tr>
                             <th>Tema</th>

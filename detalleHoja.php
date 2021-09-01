@@ -385,7 +385,7 @@ while ($row = $EJECUTADO->fetch_array()) {
 
 				<div class="mostrar">
 
-					<table class="table table-responsive" id="tablahoja" cellspacing="0" cellpadding="3" width="100%" style="width: 0px">
+					<table class="table table-responsive  table-striped" id="tablahoja" cellspacing="0" cellpadding="3" width="100%" style="width: 0px">
 
 						<thead>
 							<tr>

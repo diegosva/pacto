@@ -37,7 +37,7 @@ if ($aux != 3) {
                 </div> <!-- /div-action -->
 
 
-                <table class="table" id="manageProductSocioTable">
+                <table class="table  table-striped" id="manageProductSocioTable">
                     <thead>
                         <tr>
                             <th>Producto</th>

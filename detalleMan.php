@@ -19,7 +19,7 @@
 					<button class="btn btn-default button1" data-toggle="modal" id="addMaqModalBtn" data-target="#addMaqModal"> <i class="glyphicon glyphicon-plus-sign"></i> Agregar Detalle </button>
 				</div> <!-- /div-action -->				
 
-				<table class="table" id="manageMaqTable">
+				<table class="table  table-striped" id="manageMaqTable">
 					<thead>
 						<tr>
 							

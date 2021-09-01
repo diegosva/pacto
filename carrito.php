@@ -30,7 +30,7 @@
 
 				<div class="remove-messages"></div>
 					
-				<table class="table" id="manageCarritoTable">
+				<table class="table  table-striped" id="manageCarritoTable">
 					<thead >
 						<tr>							
 							<th>Producto</th>
