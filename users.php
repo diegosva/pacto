@@ -1,4 +1,4 @@
-<?php 	
+ <?php 	
 		session_start();
 		$aux= $_SESSION['userRol'];
 		if($aux!=1){

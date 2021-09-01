@@ -5,7 +5,7 @@
 <head>
 
   <title>Pacto</title>
-
+  <link  rel="icon"   href="../assests/recursos/pacto-logo.png" type="image/png" />
   <!-- bootstrap -->
   <link rel="stylesheet" href="assests/bootstrap/css/bootstrap.min.css">
   <!-- bootstrap theme-->
@@ -61,11 +61,11 @@
     #col2 {
       width: 40%;
     }
-
-    .logo {
-      width: 150px;
-      max-width: 30%;
+    .box img {
+      width: 20%;
+      height: auto;
     }
+
 
     #logoheader {
       height: 150px;
@@ -99,10 +99,11 @@
       <div class="row" id="logoheader">
         <div class="page-header" id="col1">
 
+          <div class="box">
+            <img class="img-fluid" src="<?php echo $RUTA ?>" alt="Logo">
+            <h3 style="font-weight: bold;"><?php echo $ASONOM ?></h3>
 
-          <img class="logo" src="<?php echo $RUTA ?>" alt="Logo">
-          <h3 style="font-weight: bold;"><?php echo $ASONOM ?></h3>
-
+          </div>
         </div>
 
         <div class="page-header" id="col2">
@@ -129,7 +130,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li id="navCapacitaciones"><a href="capacitaciones.php"><i class="fas fa-chalkboard-teacher"></i> Capacitaciones</a></li>
-          <li id="navMaq"><a href="maquinaria.php"> <i class="fas fa-tractor"></i> Maquinaria</a></li> 
+          <li id="navMaq"><a href="maquinaria.php"> <i class="fas fa-tractor"></i> Maquinaria</a></li>
           <li id="navReuniones"><a href="reuniones.php"><i class="far fa-calendar-times"></i> Reuniones</a></li>
           <li id="navProduct"><a href="product.php"> <i class="fas fa-box-open"></i> Productos</a></li>
           <li id="navpedidosAdmin"><a href="pedidosAdmin.php"><i class="fas fa-store-alt"></i> Pedidos</a></li>

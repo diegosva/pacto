@@ -5,7 +5,7 @@
 <head>
 
   <title>Pacto</title>
-
+  <link  rel="icon"   href="../assests/recursos/pacto-logo.png" type="image/png" />
   <!-- bootstrap -->
   <link rel="stylesheet" href="assests/bootstrap/css/bootstrap.min.css">
   <!-- bootstrap theme-->

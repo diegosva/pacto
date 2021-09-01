@@ -5,7 +5,7 @@
 <head>
 
   <title>Pacto</title>
-
+  <link  rel="icon"   href="../assests/recursos/pacto-logo.png" type="image/png" />
   <!-- bootstrap -->
   <link rel="stylesheet" href="assests/bootstrap/css/bootstrap.min.css">
   <!-- bootstrap theme-->
@@ -62,10 +62,13 @@
       width: 40%;
     }
 
+  
+
     .logo {
       width: 150px;
-      max-width: 30%;
+
     }
+
 
     #logoheader {
       height: 150px;
@@ -97,10 +100,16 @@
   <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
       <div class="row" id="logoheader">
+
+
         <div class="page-header" id="col1">
 
+          <div class="box">
 
-          <img class="logo" src="<?php echo $RUTA ?>" alt="Logo">
+            <img class="logo" src="<?php echo $RUTA ?>" alt="Logo">
+
+          </div>
+
           <h3 style="font-weight: bold;"><?php echo $ASONOM ?></h3>
 
         </div>

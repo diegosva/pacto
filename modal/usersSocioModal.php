@@ -372,12 +372,10 @@
 								</div>
 							</div>
 
-
-
 							<div class="form-group">
 
 								<div class="col-sm-12">
-									<img id="uploadPreview" width="80%" src="../Pacto-administrativo/assests/images/logos/fondo.png" />
+									<img id="uploadPreview" width="80%" src="../pacto/assests/images/logos/fondo.png" />
 								</div>
 
 							</div> <!-- /form-group-->

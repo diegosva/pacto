@@ -27,6 +27,7 @@
 	        	<label for="CATEGORIAID" class="col-sm-3 control-label">Categorías : </label>
 				    <div class="col-sm-8">
 						<select name="CATEGORIAID" id="CATEGORIAID" class="form-control">
+						<option value=""> -- Selecciona --</option>
 						<?php $query=mysqli_query($connect,"SELECT CATEGORIAID,NOMCAT FROM CATEGORIAPRODUCTO");?>
 						<?php 
 						while ($cat = mysqli_fetch_array($query)){ ?>
