@@ -34,7 +34,7 @@ while ($row = $result->fetch_array()) {
 
   <input style="display:none" type="text" value="' . $bodegaId . '" name="detallebodega" > </input>
 
-  <button class="btn btn-primary type="submit" style="width: 120px"> Detalle Pedido</button> 
+  <button class="btn btn-primary type="submit" style="width: 120px"> Detalle Entrega</button> 
 
   </form>
 
