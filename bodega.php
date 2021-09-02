@@ -41,7 +41,6 @@ if ($aux != 2) {
 						<tr>
 							<th>Nombre Socio</th>
 							<th>Fecha</th>
-							<th>Costo Total</th>
 							<th style="width:15%;">Opciones</th>
 						</tr>
 					</thead>
