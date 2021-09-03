@@ -37,10 +37,23 @@ while ($row = $result->fetch_array()) {
   <button class="btn btn-primary type="submit" style="width: 120px"> Detalle Entrega</button> 
 
   </form>
+  </div>
+
+    <div class="col2">
+  <form action="reciboEntrega.php" method="POST">
+
+  <input style="display:none" type="text" value="' . $bodegaId . '" name="detallebodega" > </input>
+
+  <button class="btn btn-success type="submit" style="width: 120px"> Generar Recibo</button> 
+
+  </form>
 
   </div>
 
   </div>
+
+
+
 	 	
 	';
 
