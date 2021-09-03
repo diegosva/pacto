@@ -28,7 +28,7 @@ $(document).ready(function() {
 			var CATEGORIAID = $("#CATEGORIAID").val();
 			var DESCRIPCIONPRODUCT = $("#DESCRIPCIONPRODUCT").val();
 			var PRECIOPRODUCT = $("#PRECIOPRODUCT").val();
-			var STOCKPRODUCT = $("#STOCKPRODUCT").val();
+	
 			var UNIDADESID = $("#UNIDADESID").val();
 	
 			if(NOMPRODUCT == "") {
@@ -72,16 +72,7 @@ $(document).ready(function() {
 				$("#PRECIOPRODUCT").closest('.form-group').addClass('has-success');	  	
 			}	// /else
 
-			if(STOCKPRODUCT == "") {
-				$("#STOCKPRODUCT").after('<p class="text-danger">Este campo es obligatorio</p>');
-				$('#STOCKPRODUCT').closest('.form-group').addClass('has-error');
-			}	else {
-				// remov error text field
-				$("#STOCKPRODUCT").find('.text-danger').remove();
-				// success out for form 
-				$("#STOCKPRODUCT").closest('.form-group').addClass('has-success');	  	
-			}	// /else
-
+		
 			
 			if(UNIDADESID == "") {
 				$("#UNIDADESID").closest('.center-block').after('<p class="text-danger">Este campo es obligatorio</p>');
@@ -95,7 +86,7 @@ $(document).ready(function() {
 
 	
 
-			if(NOMPRODUCT && CATEGORIAID && DESCRIPCIONPRODUCT && PRECIOPRODUCT  && STOCKPRODUCT && UNIDADESID ) {
+			if(NOMPRODUCT && CATEGORIAID && DESCRIPCIONPRODUCT && PRECIOPRODUCT   && UNIDADESID ) {
 				var form = $(this);
 				// button loading
 				$("#createProductBtn").button('loading');
@@ -204,7 +195,7 @@ function editProduct(productId = null) {
 					var CATEGORIAID  = $("#editProductCat").val();
 					var DESCRIPCIONPRODUCT = $("#editProductDesc").val();
 					var PRECIOPRODUCT = $("#editProductPre").val();
-					var STOCKPRODUCT = $("#editProductSto").val();
+			
 	
 				
 					
@@ -249,20 +240,12 @@ function editProduct(productId = null) {
 						$("#editProductPre").closest('.form-group').addClass('has-success');	  	
 					}
 
-					if(STOCKPRODUCT == "") {
-						$("#editProductSto").after('<p class="text-danger">Este campo es obligatorio</p>');
-						$('#editProductSto').closest('.form-group').addClass('has-error');
-					} else {
-						// remov error text field
-						$("#editProductSto").find('.text-danger').remove();
-						// success out for form 
-						$("#editProductSto").closest('.form-group').addClass('has-success');	  	
-					}
+				
 
 
 					
 
-					if(NOMPRODUCT && CATEGORIAID && DESCRIPCIONPRODUCT && STOCKPRODUCT  && PRECIOPRODUCT ) {
+					if(NOMPRODUCT && CATEGORIAID && DESCRIPCIONPRODUCT   && PRECIOPRODUCT ) {
 						var form = $(this);
 						// button loading
 						$("#editProductBtn").button('loading');

@@ -138,7 +138,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li id="navhojaCampo"><a href="hojaCampo.php"><i class="fas fa-clipboard-check"></i> Hoja de Campo</a></li>
-          <li id="navProduct"><a href="socioProduct.php"> <i class="fas fa-box-open"></i> Productos</a></li>
+    
 
           <li class="dropdown" id="navSetting">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-user"></i> <span class="caret"></span></a>
