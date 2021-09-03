@@ -1,6 +1,5 @@
-
 <?php require_once 'includes/Socioheader.php'; ?>
-<?php include('modal/reunionesModal.php');?>
+<?php include('modal/reunionesModal.php'); ?>
 
 
 
@@ -9,8 +8,8 @@
 	<div class="col-md-12">
 
 		<ol class="breadcrumb">
-		  <li><a href="asodashboard.php">Inicio</a></li>		  
-		  <li class="active">Reuniones</li>
+			<li><a href="asodashboard.php">Inicio 2 </a></li>
+			<li class="active">Reuniones Esteban </li>
 		</ol>
 
 		<div class="panel panel-default">
@@ -21,31 +20,34 @@
 
 				<div class="remove-messages"></div>
 
-				<div class="div-action pull pull-right" style="padding-bottom:20px;">   
+				<div class="div-action pull pull-right" style="padding-bottom:20px;">
 					<button class="btn btn-default button1" data-toggle="modal" id="addReunionesModalBtn" data-target="#addReunionesModal"> <i class="glyphicon glyphicon-plus-sign"></i> Agregar reunión </button>
-				</div> <!-- /div-action -->				
-				
-				<table class="table  table-striped" id="manageReunionesTable">
+				</div> <!-- /div-action -->
+
+
+			
+
+				<table class="table" id="manageReunionesTable">
 					<thead>
-						<tr>	
-													
+						<tr>
+
 							<th>Tema</th>
 							<th>Tipo</th>
-                            <th>Entidad</th>
+							<th>Entidad</th>
 							<th>Fecha</th>
-                            <th>Hora</th>
-                            <th>Acta</th>
+							<th>Hora</th>
+							<th>Acta</th>
 							<th style="width: 15%;"> Acciones</th>
-							
+
 						</tr>
 					</thead>
 				</table>
 				<!-- /table -->
 
 			</div> <!-- /panel-body -->
-		</div> <!-- /panel -->		
+		</div> <!-- /panel -->
 	</div> <!-- /col-md-12 -->
 </div> <!-- /row -->
 
 <script src="custom/js/reuniones.js"></script>
-<?php require_once 'includes/footer.php'; ?>	
+<?php require_once 'includes/footer.php'; ?>

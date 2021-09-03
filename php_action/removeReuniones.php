@@ -5,7 +5,7 @@ require_once 'core.php';
 
 $valid['success'] = array('success' => false, 'messages' => array());
 
-$reunionesId = $_GET['reunionesId'];
+$reunionesId = $_POST['reunionesId'];
  
 //  $sql = "UPDATE brands SET brand_status = 2 WHERE brand_id = {$brandId}";
 //  $sql = "SELECT REUNIONID FROM reunion WHERE REUNIONID = 21";
@@ -17,7 +17,7 @@ $reunionesId = $_GET['reunionesId'];
 	if($connect->query($sql) === TRUE) {
 		$valid['success'] = true;
 	   $valid['messages'] = "Eliminado exitosamente";
-	   header ("Location:../reuniones.php");				
+	  /*  header ("Location:../reuniones.php");	 */			
 	} else {
 		$valid['success'] = false;
 		$valid['messages'] = "Error no se ha podido eliminar";

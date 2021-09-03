@@ -312,6 +312,115 @@ function editReuniones(reunionesId = null) {
 } // /edit categories function
 
 
+function editReunionesActa(reunionesId = null) {
+	if(reunionesId) {
+		// remove the added categories id 
+		$('#editReunionesId').remove();
+		// reset the form text
+		$("#editReunionesActaForm")[0].reset();
+		// reset the form text-error
+		$(".text-danger").remove();
+		// reset the form group errro		
+		$('.form-group').removeClass('has-error').removeClass('has-success');
+
+		// edit categories messages
+		$("#edit-reuniones-messages").html("");
+		// modal spinner
+		$('.modal-loading').removeClass('div-hide');
+		// modal result
+		$('.edit-reuniones-result').addClass('div-hide');
+		//modal footer
+		$(".editReunionesActaFooter").addClass('div-hide');		
+
+		$.ajax({
+			url: 'php_action/fetchSelectedReuniones.php',
+			type: 'post',
+			data: {reunionesId: reunionesId},
+			dataType: 'json',
+			success:function(response) {
+
+				// modal spinner
+				$('.modal-loading').addClass('div-hide');
+				// modal result
+				$('.edit-reuniones-result').removeClass('div-hide');
+				//modal footer
+				$(".editReunionesActaFooter").removeClass('div-hide');	
+				$("#editReunionesActa").val(response.ACTA);
+				$(".editReunionesActaFooter").after('<input type="hidden" name="editReunionesId" id="editReunionesId" value="'+response.REUNIONID+'" />');
+				$("#editReunionesActaForm").unbind('submit').bind('submit', function() {
+					var ReunionesActa = $("#editReunionesActa").val();
+					if(ReunionesActa == "") {
+						$("#editReunionesActa").after('<p class="text-danger">Este campo es obligatorio</p>');
+						$('#editReunionesActa').closest('.form-group').addClass('has-error');
+					} else {
+						// remov error text field
+						$("#editReunionesActa").find('.text-danger').remove();
+						// success out for form 
+						$("#editReunionesActa").closest('.form-group').addClass('has-success');	  	
+					}
+					if(ReunionesActa) {
+						var form = $(this);
+						// button loading
+						$("#editReunionesActaBtn").button('loading');
+
+						$.ajax({
+							url : form.attr('action'),
+							type: form.attr('method'),
+							data: form.serialize(),
+							dataType: 'json',
+							success:function(response) {
+								// button loading
+								$("#editReunionesActaBtn").button('reset');
+
+								if(response.success == true) {
+									// reload the manage member table 
+									manageReunionesTable.ajax.reload(null, false);									  	  			
+									
+									// remove the error text
+									$(".text-danger").remove();
+									// remove the form error
+									$('.form-group').removeClass('has-error').removeClass('has-success');
+			  	  			
+			  	  			$('#edit-reuniones-messages').html('<div class="alert alert-success">'+
+			            '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
+			            '<strong><i class="glyphicon glyphicon-ok-sign"></i></strong> '+ response.messages +
+				          '</div>');
+
+			  	  			$(".alert-success").delay(500).show(10, function() {
+										$(this).delay(3000).hide(10, function() {
+											$(this).remove();
+										});
+									}); // /.alert
+								}  // if
+
+							} // /success
+						}); // /ajax	
+					} // if
+					return false;
+				}); // /submit of edit categories form
+
+			} // /success
+		}); // /fetch the selected categories data
+
+	} else {
+		alert('Oops!! Refresh the page');
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // remove categories function
 function removeReuniones(reunionesId = null) {

@@ -17,4 +17,4 @@ if($result->num_rows > 0) {
 
 $connect->close();
 
-echo json_encode($row);
+echo json_encode($row); 

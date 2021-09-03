@@ -36,21 +36,13 @@ if ($_POST) {
 
 			if ($EJECUTADOSTOCK2) {
 
-				// $sql1 = "SELECT SUM(STOCKBODEGA) FROM DETALLEBODEGA WHERE PRODUCTOID = $PRODUCTOID ";
-				// $EJECUTADO1 = mysqli_query($connect, $sql1);
-
-				// while ($row = $EJECUTADO1->fetch_array()) {
-				// 	$STOCKSUMA = $row[0];
-
-				// }
+			
 				$stockproducto = "SELECT STOCKPRODUCT FROM PRODUCTO WHERE PRODUCTOID = $PRODUCTOID ";
 				$EJECUTADOSTOCKPRO = mysqli_query($connect, $stockproducto);
 
 				while ($row = $EJECUTADOSTOCKPRO->fetch_array()) {
 					$STOCKPRODUCTO = $row[0];
 				}
-				// if ($EJECUTADO1) {
-
 				if ($STOCKANTES < $STOCKDESPUES) {
 
 					$TOTALSTOCK = $STOCKDESPUES - $STOCKANTES;
@@ -63,19 +55,10 @@ if ($_POST) {
 					$TOTAL=$STOCKPRODUCTO;
 				}
 
-				// $sql2 = "SELECT STOCKPRODUCT FROM PRODUCTO WHERE PRODUCTOID  = $PRODUCTOID ";
-				// $EJECUTADO2 = mysqli_query($connect, $sql2);
-
-
-				// while ($row = $EJECUTADO2->fetch_array()) {
-				// 	$STOCK = $row[0];
-				// }
-
-				// if ($EJECUTADO2) {
+				
 				$sql3 = "UPDATE PRODUCTO SET STOCKPRODUCT=  $TOTAL  WHERE PRODUCTOID  = $PRODUCTOID ";
 				$EJECUTADO3 = mysqli_query($connect, $sql3);
-				// }
-
+				
 				if ($EJECUTADO3) {
 					$valid['success'] = true;
 					$valid['messages'] = "Actualizado exitosamente";
@@ -83,7 +66,7 @@ if ($_POST) {
 					$valid['success'] = false;
 					$valid['messages'] = "Error no se ha podido actualizar";
 				}
-				// }
+
 			}
 		}
 	}
