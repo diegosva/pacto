@@ -138,6 +138,8 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li id="navhojaCampo"><a href="hojaCampo.php"><i class="fas fa-clipboard-check"></i> Hoja de Campo</a></li>
+
+          <li id="navhojaCampo"><a href="bodegaSocio.php"><i class="fas fa-clipboard-check"></i> Mis entregas</a></li>
     
 
           <li class="dropdown" id="navSetting">

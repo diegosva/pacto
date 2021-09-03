@@ -25,21 +25,25 @@ if ($_POST) {
     if ($EJECUTADO1) {
         $sql2 = "INSERT INTO BODEGA (PERTENECENID , FECHABODEGA,TOTALCOSTO) VALUES ($PERTENECENID,'$FECHABODEGA',0)";
         $EJECUTADO2 = mysqli_query($connect, $sql2);
+
+        if ($EJECUTADO2) {
+            $valid['success'] = true;
+            $valid['messages'] = "Creado exitosamente";
+        } else {
+            $valid['success'] = false;
+            $valid['messages'] = "Error no se ha podido guardar";
+        }
+    
+    
     }
 
 
 
 
-    if ($EJECUTADO2) {
-        $valid['success'] = true;
-        $valid['messages'] = "Creado exitosamente";
-    } else {
-        $valid['success'] = false;
-        $valid['messages'] = "Error no se ha podido guardar";
-    }
-
-
+    
     $connect->close();
 
     echo json_encode($valid);
+
+    header("location:../bodega.php");
 } // /if $_POST
