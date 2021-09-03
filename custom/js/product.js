@@ -195,8 +195,8 @@ function editProduct(productId = null) {
 					var CATEGORIAID  = $("#editProductCat").val();
 					var DESCRIPCIONPRODUCT = $("#editProductDesc").val();
 					var PRECIOPRODUCT = $("#editProductPre").val();
-			
-	
+					var STOCKPRODUCT = $("#editProductSto").val();
+					
 				
 					
 
@@ -239,13 +239,21 @@ function editProduct(productId = null) {
 						// success out for form 
 						$("#editProductPre").closest('.form-group').addClass('has-success');	  	
 					}
-
+					if(STOCKPRODUCT == "") {
+						$("#editProductSto").after('<p class="text-danger">Este campo es obligatorio</p>');
+						$('#editProductSto').closest('.form-group').addClass('has-error');
+					} else {
+						// remov error text field
+						$("#editProductSto").find('.text-danger').remove();
+						// success out for form 
+						$("#editProductSto").closest('.form-group').addClass('has-success');	  	
+					}
 				
 
 
 					
 
-					if(NOMPRODUCT && CATEGORIAID && DESCRIPCIONPRODUCT   && PRECIOPRODUCT ) {
+					if(NOMPRODUCT && CATEGORIAID && DESCRIPCIONPRODUCT   && PRECIOPRODUCT && STOCKPRODUCT) {
 						var form = $(this);
 						// button loading
 						$("#editProductBtn").button('loading');

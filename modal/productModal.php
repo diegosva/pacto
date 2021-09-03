@@ -169,14 +169,14 @@
 
 
 			
-<!-- 
-			<div class="form-group">
+ 
+		 	<div class="form-group">
 			<label for="editProductSto" class="col-sm-3 control-label">Stock: </label>
 		
 				<div class="col-sm-8">
 					<input type="number" class="form-control" id="editProductSto" placeholder="Stock del producto" name="editProductSto" autocomplete="off">
 				</div>
-	        </div> /form-group -->
+	        </div>
 
 
 			
