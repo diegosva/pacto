@@ -20,7 +20,7 @@ error_reporting(0);
 		width: 100%;
 		height: 100%;
 		font-family: 'Raleway', sans-serif;
-	}
+	} 
 </style>
 <?php
 
@@ -32,7 +32,7 @@ if ($_POST) {
 	$aso_Id = $_POST['ASOCID'];
 	$radio_Rol = $_POST['flexRadioDefault'];
 
-	$username = $connect->real_escape_string($_POST['username']); 
+	$username = $connect->real_escape_string($_POST['username']); // Escapando caracteres especiales
 	$password = $_POST['password'];
 
 	if (empty($username) || empty($password)) {
