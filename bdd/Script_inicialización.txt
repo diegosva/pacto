@@ -6,16 +6,12 @@ INSERT INTO ROL (`ROLID`, `ROLNOM`) VALUES
 (3, 'SOCIO_ROLE'),
 (4, 'CLIENTE_ROLE');
 
-
-
 INSERT INTO `usuario` (`USUARIOID`, `ROLID`, `NOMBREUSU`, `EMAILUSU`, `TELCUSU`, `TELCELUSU`, `CONTRAUSU`, `DIRUSU`, `NOMBREAPEUSU`, `HECTAREASUSU`, `CEDULAUSU`, `STATUSUSU`) VALUES
-(1, 1, 'super', 'super@gmail.com', '2599874', '098563214', 'e10adc3949ba59abbe56e057f20f883e', 'David Ledesma', 'super super', 4, '1001578896', 1),
-(2, 2, 'admin', 'admin@gmail.com', '+593997347', '+593997347', '202cb962ac59075b964b07152d234b70', ' CALDERÓN Y Venezuela', 'admin admin', NULL, '0401918658', 1);
-
+(1, 1, 'super', 'super@gmail.com', '2599874', '098563214', 'e10adc3949ba59abbe56e057f20f883e', 'David Ledesma', 'Anderson Lucero', 4, '1001578896', 1),
+(2, 2, 'admin', 'admin@gmail.com', '+593997347', '+593997347', '202cb962ac59075b964b07152d234b70', ' CALDERÓN Y Venezuela', 'Diego Vaca', NULL, '0401918658', 1);
 
 INSERT INTO `asociacion` (`ASOCIACIONID`, `NOMBREASO`, `SECTORASO`, `BARRIOASO`, `PARROQUIAASO`, `LOGOASO`, `STATUSASO`) VALUES
 (1, 'Asociación 1', 'Guanabana', 'Quitumbe', 'Pacto', NULL, 1);
-
 
 INSERT INTO `pertenecen` (`PERTENECENID`, `USUARIOID`, `ASOCIACIONID`, `DIRECTIVAID`) VALUES
 (1, 2, 1, NULL);
@@ -23,4 +19,8 @@ INSERT INTO `pertenecen` (`PERTENECENID`, `USUARIOID`, `ASOCIACIONID`, `DIRECTIV
 INSERT INTO `estadopedido` (`ESTADOPEDIDOID`, `NOMBREESPE`) VALUES (NULL, 'pendiente'), (NULL, 'entregado');
 
 
+INSERT INTO `unidades` (`UNIDADESID`, `NOMUNIDADES`) VALUES (NULL, 'Kg'), (NULL, 'L');
 
+INSERT INTO `pais` (`PAISID`, `NOMPAIS`) VALUES (NULL, 'Ecuador'), (NULL, 'Colombia'), (NULL, 'Perú');
+
+INSERT INTO `tiporeunion` (`TIPOREUNIONID`, `TIPOREUNION`) VALUES (NULL, 'Capacitación'), (NULL, 'Reunión');

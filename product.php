@@ -43,8 +43,8 @@ if ($aux != 2) {
 							<th>Unidades</th>
 							<th>Categoría</th>
 							<th>Descripción</th>
-							<th>Precio</th>
-							<th>PVP</th>
+							<th>Precio(USD)</th>
+							<th>PVP(USD)</th>
 							<th>Stock</th>
 							<th>Status Disponibilidad</th>
 							<th>Status</th>

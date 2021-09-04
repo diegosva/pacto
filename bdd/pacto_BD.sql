@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-09-2021 a las 06:17:55
+-- Tiempo de generación: 04-09-2021 a las 02:14:24
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 7.3.29
 
@@ -70,26 +70,6 @@ CREATE TABLE `bodega` (
   `TOTALCOSTO` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `bodega`
---
-
-INSERT INTO `bodega` (`BODEGAID`, `PERTENECENID`, `FECHABODEGA`, `TOTALCOSTO`) VALUES
-(17, 2, '2021-09-02', 0),
-(18, 3, '2021-09-02', 0),
-(19, 1, '2021-09-02', 0),
-(20, 1, '2021-09-03', 0),
-(21, 1, '2021-09-02', 0),
-(22, 1, '2021-09-02', 0),
-(23, 2, '2021-09-02', 0),
-(24, 2, '2021-09-02', 0),
-(25, 2, '2021-09-02', 0),
-(26, 1, '2021-09-02', 0),
-(27, 1, '2021-09-02', 0),
-(28, 2, '2021-09-03', 0),
-(29, 1, '1970-01-01', 0),
-(30, 1, '2021-09-04', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -99,7 +79,7 @@ INSERT INTO `bodega` (`BODEGAID`, `PERTENECENID`, `FECHABODEGA`, `TOTALCOSTO`) V
 CREATE TABLE `categoriaproducto` (
   `CATEGORIAID` int(11) NOT NULL,
   `NOMCAT` varchar(20) NOT NULL,
-  `DESCCAT` varchar(40) NOT NULL
+  `DESCCAT` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -107,7 +87,8 @@ CREATE TABLE `categoriaproducto` (
 --
 
 INSERT INTO `categoriaproducto` (`CATEGORIAID`, `NOMCAT`, `DESCCAT`) VALUES
-(1, 'Frutas', 'Frutas Frescas');
+(1, 'Tubérculos', 'Tallo subterráneo​ modificado y engrosado donde se acumulan los nutrientes de reserva para la planta'),
+(2, 'Frutas', ' Fruto comestible de ciertas plantas cultivadas');
 
 -- --------------------------------------------------------
 
@@ -138,15 +119,6 @@ CREATE TABLE `detallebodega` (
   `DESCRIPBODEGA` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `detallebodega`
---
-
-INSERT INTO `detallebodega` (`DETBODEGAID`, `PRODUCTOID`, `UNIDADESID`, `BODEGAID`, `STOCKBODEGA`, `PRECIOBODEGA`, `DESCRIPBODEGA`) VALUES
-(19, 2, 2, 17, 10, 12, ' aaa'),
-(20, 3, 2, 17, 123, 123, ' asda'),
-(21, 2, 2, 19, 10, 123, ' asd');
-
 -- --------------------------------------------------------
 
 --
@@ -160,21 +132,6 @@ CREATE TABLE `detallefactura` (
   `CANTIDAD` int(11) NOT NULL,
   `TOTALPRODUCT` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `detallefactura`
---
-
-INSERT INTO `detallefactura` (`DETALLEID`, `PRODUCTOID`, `PEDIDOSID`, `CANTIDAD`, `TOTALPRODUCT`) VALUES
-(4, 2, 2, 4, 44.8),
-(5, 3, 2, 5, 688.8),
-(6, 2, 3, 6, 67.2),
-(7, 3, 4, 1, 137.76),
-(9, 5, 4, 1, 13.4736),
-(10, 3, 5, 3, 413.28),
-(11, 4, 6, 14, 367273),
-(12, 4, 6, 14, 367273),
-(13, 3, 6, 4, 551.04);
 
 -- --------------------------------------------------------
 
@@ -353,6 +310,15 @@ CREATE TABLE `pais` (
   `NOMPAIS` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `pais`
+--
+
+INSERT INTO `pais` (`PAISID`, `NOMPAIS`) VALUES
+(1, 'Ecuador'),
+(2, 'Colombia'),
+(3, 'Perú');
+
 -- --------------------------------------------------------
 
 --
@@ -367,18 +333,6 @@ CREATE TABLE `pedidos` (
   `TOTALPEDIDO` float DEFAULT NULL,
   `STATUSPEDIDO` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `pedidos`
---
-
-INSERT INTO `pedidos` (`PEDIDOSID`, `USUARIOID`, `ESTADOPEDIDOID`, `FECHAPEDIDO`, `TOTALPEDIDO`, `STATUSPEDIDO`) VALUES
-(2, 5, 1, '2021-09-02', 733.6, 1),
-(3, 5, 1, '2021-09-02', 67.2, 1),
-(4, 5, 1, '2021-09-03', 151.23, 1),
-(5, 5, 1, '2021-09-03', 413.28, 1),
-(6, 5, 1, '2021-09-03', 735097, 1),
-(7, 5, 1, '2021-09-03', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -398,9 +352,7 @@ CREATE TABLE `pertenecen` (
 --
 
 INSERT INTO `pertenecen` (`PERTENECENID`, `USUARIOID`, `ASOCIACIONID`, `DIRECTIVAID`) VALUES
-(1, 2, 1, NULL),
-(2, 3, 1, NULL),
-(3, 4, 1, NULL);
+(1, 2, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -426,12 +378,8 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`PRODUCTOID`, `CATEGORIAID`, `ASOCIACIONID`, `UNIDADESID`, `NOMPRODUCT`, `DESCRIPCIONPRODUCT`, `PRECIOPRODUCT`, `STOCKPRODUCT`, `PVPPRODUCT`, `STATUSPRODUCT`) VALUES
-(2, 1, 1, 1, 'Producto1', 'desc1', 123, 7, 137.76, 0),
-(3, 1, 1, 2, 'Producto2', 'desc2', 123, 123, 137.76, 1),
-(4, 1, 1, 2, 'Producto3', 'desc3', 23423, 12, 26233.8, 1),
-(5, 1, 1, 1, 'Producto4', 'desc4', 12.03, -10, 13.4736, 1),
-(6, 1, 1, 2, 'Producto5', 'aaa', 123, 100, 137.76, 0),
-(7, 1, 1, 2, 'Producto6', 'A', 123, 0, 137.76, 0);
+(1, 1, 1, 2, 'Papa Chola', 'Papa de Buena Calida', 1.04, 0, 1.1648, 0),
+(2, 2, 1, 2, 'Guanába', 'Guanábana Fresca', 1.2, 0, 1.344, 0);
 
 -- --------------------------------------------------------
 
@@ -512,15 +460,6 @@ CREATE TABLE `subtotalhojadecampo` (
   `NUMSEMANA` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `subtotalhojadecampo`
---
-
-INSERT INTO `subtotalhojadecampo` (`SUBHOJADECAMPOID`, `PERTENECENID`, `SUBJORNAL`, `COSJORNAL`, `COSMANO`, `COSFAMI`, `COSLENA`, `COSTRANS`, `COSMANT`, `COSCANA`, `COSTRAPICHE`, `COSTINA`, `COSINFRA`, `OBSERVACIONES`, `HOJASTATUS`, `NUMSEMANA`) VALUES
-(1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1),
-(2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 2),
-(3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 3);
-
 -- --------------------------------------------------------
 
 --
@@ -543,6 +482,14 @@ CREATE TABLE `tiporeunion` (
   `TIPOREUNION` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `tiporeunion`
+--
+
+INSERT INTO `tiporeunion` (`TIPOREUNIONID`, `TIPOREUNION`) VALUES
+(1, 'Capacitación'),
+(2, 'Reunión');
+
 -- --------------------------------------------------------
 
 --
@@ -559,8 +506,8 @@ CREATE TABLE `unidades` (
 --
 
 INSERT INTO `unidades` (`UNIDADESID`, `NOMUNIDADES`) VALUES
-(1, 'L'),
-(2, 'Kg');
+(2, 'Kg'),
+(3, 'L');
 
 -- --------------------------------------------------------
 
@@ -588,11 +535,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`USUARIOID`, `ROLID`, `NOMBREUSU`, `EMAILUSU`, `TELCUSU`, `TELCELUSU`, `CONTRAUSU`, `DIRUSU`, `NOMBREAPEUSU`, `HECTAREASUSU`, `CEDULAUSU`, `STATUSUSU`) VALUES
-(1, 1, 'super', 'super@gmail.com', '2599874', '098563214', '202cb962ac59075b964b07152d234b70', 'David Ledesma', 'super super', 4, '1001578896', 1),
-(2, 2, 'admin', 'admin@gmail.com', '2242277', '098567214', '202cb962ac59075b964b07152d234b70', ' Calderón y Venezuela', 'admin admin', 4, '0401918658', 1),
-(3, 3, 'Socio', 'alucero@netsoft.com.ec', '+593997347', '0401918658', '202cb962ac59075b964b07152d234b70', ' CALDERÓN Y Venezuela', 'EEE', NULL, '123', 1),
-(4, 3, 'Socio2', 'alucero@netsoft.com.ec', '+593997347', 'fwegf', '202cb962ac59075b964b07152d234b70', ' CALDERÓN Y Venezuela', 'RRR', NULL, '123123', 1),
-(5, 4, 'Cliente', 'andy04019ss186805@gmail.com', '1212312', '123123', '202cb962ac59075b964b07152d234b70', 'CALDERÓN Y Venezuela', 'Anderson Lucero', 0, '04019123', 1);
+(1, 1, 'super', 'super@gmail.com', '2599874', '098563214', 'e10adc3949ba59abbe56e057f20f883e', 'David Ledesma', 'Anderson Lucero', 4, '1001578896', 1),
+(2, 2, 'admin', 'admin@gmail.com', '+593997347', '+593997347', '202cb962ac59075b964b07152d234b70', ' CALDERÓN Y Venezuela', 'Diego Vaca', NULL, '0401918658', 1);
 
 --
 -- Índices para tablas volcadas
@@ -817,13 +761,13 @@ ALTER TABLE `asociacion`
 -- AUTO_INCREMENT de la tabla `bodega`
 --
 ALTER TABLE `bodega`
-  MODIFY `BODEGAID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `BODEGAID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `categoriaproducto`
 --
 ALTER TABLE `categoriaproducto`
-  MODIFY `CATEGORIAID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `CATEGORIAID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `certificado`
@@ -835,13 +779,13 @@ ALTER TABLE `certificado`
 -- AUTO_INCREMENT de la tabla `detallebodega`
 --
 ALTER TABLE `detallebodega`
-  MODIFY `DETBODEGAID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `DETBODEGAID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `detallefactura`
 --
 ALTER TABLE `detallefactura`
-  MODIFY `DETALLEID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `DETALLEID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `detallemantenimiento`
@@ -901,25 +845,25 @@ ALTER TABLE `multa`
 -- AUTO_INCREMENT de la tabla `pais`
 --
 ALTER TABLE `pais`
-  MODIFY `PAISID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PAISID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `PEDIDOSID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `PEDIDOSID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `pertenecen`
 --
 ALTER TABLE `pertenecen`
-  MODIFY `PERTENECENID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `PERTENECENID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `PRODUCTOID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `PRODUCTOID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `reunion`
@@ -943,7 +887,7 @@ ALTER TABLE `statusreunion`
 -- AUTO_INCREMENT de la tabla `subtotalhojadecampo`
 --
 ALTER TABLE `subtotalhojadecampo`
-  MODIFY `SUBHOJADECAMPOID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `SUBHOJADECAMPOID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tipomantenimiento`
@@ -955,19 +899,19 @@ ALTER TABLE `tipomantenimiento`
 -- AUTO_INCREMENT de la tabla `tiporeunion`
 --
 ALTER TABLE `tiporeunion`
-  MODIFY `TIPOREUNIONID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `TIPOREUNIONID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `unidades`
 --
 ALTER TABLE `unidades`
-  MODIFY `UNIDADESID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `UNIDADESID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `USUARIOID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `USUARIOID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
