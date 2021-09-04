@@ -19,6 +19,7 @@ if ($aux != 2) {
 
 		<ol class="breadcrumb">
 			<li><a href="asodashboard.php">Inicio</a></li>
+			<li><a href="bodega.php">Bodega</a></li>
 			<li class="active">Detalle Bodega</li>
 		</ol>
 

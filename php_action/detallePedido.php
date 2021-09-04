@@ -33,6 +33,7 @@ if ($_POST) {
             $EJECUTADO3 = mysqli_query($connect, $sql3);
             if ($EJECUTADO3) {
                 echo "Detalle insertado con exito if";
+                header('location: ../pedidosCliente.php');
             } else {
                 echo "Error al insertar Detalle Factura if";
             }

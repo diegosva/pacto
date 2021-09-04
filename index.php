@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+require_once 'php_action/db_connect.php';
+error_reporting(0);
+
+?>
+
 <head>
 	<link rel="icon" href="assests/recursos/pacto-logo.png" type="image/png" />
 </head>
@@ -17,13 +25,6 @@
 <?php
 
 
-
-
-require_once 'php_action/db_connect.php';
-
-session_start();
-error_reporting(0);
-
 $errors = array();
 
 if ($_POST) {
@@ -31,7 +32,7 @@ if ($_POST) {
 	$aso_Id = $_POST['ASOCID'];
 	$radio_Rol = $_POST['flexRadioDefault'];
 
-	$username = $connect->real_escape_string($_POST['username']); // Escapando caracteres especiales
+	$username = $connect->real_escape_string($_POST['username']); 
 	$password = $_POST['password'];
 
 	if (empty($username) || empty($password)) {
@@ -43,14 +44,14 @@ if ($_POST) {
 			$errors[] = "Se requiere contraseña";
 		}
 	} else {
-		$sql = "SELECT * FROM usuario WHERE NOMBREUSU = '$username'";
+		$sql = "SELECT * FROM USUARIO WHERE NOMBREUSU = '$username'";
 		$result = $connect->query($sql);
 
 		if ($result->num_rows == 1) {
 			$password = md5($password);
 			// exists
 
-			$mainSql = "SELECT * FROM usuario WHERE NOMBREUSU = '$username' AND CONTRAUSU = '$password'";
+			$mainSql = "SELECT * FROM USUARIO WHERE NOMBREUSU = '$username' AND CONTRAUSU = '$password'";
 			$mainResult = $connect->query($mainSql);
 
 
@@ -70,8 +71,6 @@ if ($_POST) {
 
 						$ASOID = $fila->ASOCIACIONID;
 						$USUID = $fila->USUARIOID;
-
-
 
 						if ($ASOID == $aso_Id && $USUID == $user_id) {
 
