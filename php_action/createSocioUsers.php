@@ -17,15 +17,11 @@ if($_POST) {
     $STATUSUSU = 1; 
     $ROLID=3;
 
-
-
 	$sql = "INSERT INTO USUARIO (NOMBREUSU, ROLID,EMAILUSU,TELCUSU,TELCELUSU,CONTRAUSU,DIRUSU,NOMBREAPEUSU,STATUSUSU,CEDULAUSU) 
 	VALUES ('$NOMBREUSU', $ROLID,'$EMAILUSU', '$TELCUSU','$TELCELUSU', '$CONTRAUSU', ' $DIRUSU', '$NOMBREAPEUSU',$STATUSUSU,$CEDULAUSU)";
     
-    
 
     $EJECUTADO1=mysqli_query($connect,$sql);
-
 
 
     if($EJECUTADO1){
@@ -51,12 +47,6 @@ if($_POST) {
         }
     }
     
-
-
-    
-
-    
-
 
 	$connect->close();
 

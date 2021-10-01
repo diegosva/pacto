@@ -9,7 +9,7 @@
     }
 
     body {
-        background-image: url(/assests/recursos/fondo-pacto-2.jpg);
+        background-image: url(/pacto/assests/recursos/fondo-pacto-2.jpg);
         background-repeat: no-repeat;
         background-size: contain;
         background-size: cover;

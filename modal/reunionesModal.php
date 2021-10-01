@@ -1,4 +1,4 @@
-<!-- add categories -->
+<!-- add Reuniones -->
 <div class="modal fade" id="addReunionesModal" tabindex="-1" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -26,29 +26,13 @@
 						<div class="col-sm-7">
 							<select class="form-control" id="ReunionesTipo" name="ReunionesTipo">
 								<option disabled>-- Selecciona --</option>
-								<option value="Reunion">Reunión</option>
-								<option value="Capacitación">Capacitación</option>
+								<option value="Ordinaria">Ordinaria</option>
+								<option value="Extraordinaria">Extraordinaria</option>
 							</select>
 						</div>
 					</div> <!-- /form-group-->
 
-					<div class="form-group">
-						<label for="ReunionesEntidad" class="col-sm-4 control-label">Entidad: </label>
-
-						<div class="col-sm-7">
-							<select name="ReunionesEntidad" id="ReunionesEntidad" class="form-control">
-								<?php $query = mysqli_query($connect, "SELECT NOMBREENT, ENTIDADID FROM entidad"); ?>
-								<?php
-								while ($especies = mysqli_fetch_array($query)) { ?>
-									<option value=" <?php echo $especies['ENTIDADID']; ?> "> <?php echo $especies['NOMBREENT']; ?></option><br>
-								<?php
-									// $connect->close();
-								} ?>
-							</select>
-						</div>
-
-
-					</div> <!-- /form-group-->
+		
 					<div class="form-group">
 						<label for="ReunionesFecha" class="col-sm-4 control-label">Fecha: </label>
 
@@ -57,13 +41,19 @@
 						</div>
 					</div> <!-- /form-group-->
 					<div class="form-group">
-						<label for="ReunionesHora" class="col-sm-4 control-label">Hora: </label>
+						<label for="ReunionesHora" class="col-sm-4 control-label">Hora de Inicio: </label>
 
 						<div class="col-sm-7">
 							<input type="time" class="form-control" id="ReunionesHora" name="ReunionesHora" autocomplete="off">
 						</div>
 					</div> <!-- /form-group-->
+					<div class="form-group">
+						<label for="ReunionesHoraFin" class="col-sm-4 control-label">Hora de Finalización: </label>
 
+						<div class="col-sm-7">
+							<input type="time" class="form-control" id="ReunionesHoraFin" name="ReunionesHoraFin" autocomplete="off">
+						</div>
+					</div> <!-- /form-group-->
 
 
 					<div class="form-group">
@@ -89,7 +79,7 @@
 		</div> <!-- /modal-content -->
 	</div> <!-- /modal-dailog -->
 </div>
-<!-- /add categories -->
+<!-- /add Reuniones -->
 
 <!-- edit categories brand -->
 <div class="modal fade" id="editReunionesModal" tabindex="-1" role="dialog">
@@ -118,30 +108,10 @@
 								<input type="text" class="form-control" id="editReunionesTema" placeholder="Tema Reunión" name="editReunionesTema" autocomplete="off">
 							</div>
 						</div> <!-- /form-group-->
-						<div class="form-group">
-							<label for="editReunionesTipo" class="col-sm-4 control-label">Tipo: </label>
-
-							<div class="col-sm-7">
-								<select class="form-control" id="editReunionesTipo" name="editReunionesTipo">
-									<option value="">-- Selecciona --</option>
-									<option value="Reunión">Reunión</option>
-									<option value="Capacitación">Capacitación</option>
-								</select>
-							</div>
-						</div> <!-- /form-group-->
 
 
-						<div class="form-group">
-							<label for="editReunionesEntidad" class="col-sm-4 control-label">Entidad:</label>
 
-							<div class="col-sm-7">
-								<select class="form-control" id="editReunionesEntidad" name="editReunionesEntidad">
-									<option disabled>-- Selecciona --</option>
-									<option value="1">Entidad1</option>
-									<option value="2">Entidad2</option>
-								</select>
-							</div>
-						</div> <!-- /form-group-->
+
 
 						<div class="form-group">
 							<label for="editReunionesFecha" class="col-sm-4 control-label">Fecha: </label>
@@ -152,12 +122,22 @@
 						</div> <!-- /form-group-->
 
 						<div class="form-group">
-							<label for="editReunionesHora" class="col-sm-4 control-label">Hora: </label>
+							<label for="editReunionesHora" class="col-sm-4 control-label">Hora de Inicio: </label>
 
 							<div class="col-sm-7">
 								<input type="time" class="form-control" id="editReunionesHora" name="editReunionesHora" autocomplete="off">
 							</div>
 						</div> <!-- /form-group-->
+
+						<div class="form-group">
+							<label for="editReunionesHoraFin" class="col-sm-4 control-label">Hora de Finalización: </label>
+
+							<div class="col-sm-7">
+								<input type="time" class="form-control" id="editReunionesHoraFin" name="editReunionesHoraFin" autocomplete="off">
+							</div>
+						</div> <!-- /form-group-->
+
+						
 						<div class="form-group">
 							<label for="editReunionesActa" class="col-sm-4 control-label">Acta: </label>
 

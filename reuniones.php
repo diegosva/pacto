@@ -1,15 +1,35 @@
-<?php require_once 'includes/Socioheader.php'; ?>
+
+<?php
+session_start();
+
+$aux = $_SESSION['userRol'];
+
+$aux2 = $_SESSION['asoId'];
+
+
+if ($aux != 1) {
+	if ($aux != 2) {
+		header('location: index.php');
+	}
+}
+
+
+
+?>
+
+
+<?php require_once 'includes/SocioHeader.php'; ?>
 <?php include('modal/reunionesModal.php'); ?>
 
-
+<?php require_once 'php_action/db_connect.php' ?>
 
 
 <div class="row">
 	<div class="col-md-12">
 
 		<ol class="breadcrumb">
-			<li><a href="asodashboard.php">Inicio 2 </a></li>
-			<li class="active">Reuniones Esteban </li>
+			<li><a href="asodashboard.php">Inicio  </a></li>
+			<li class="active">Reuniones</li>
 		</ol>
 
 		<div class="panel panel-default">
@@ -30,12 +50,12 @@
 				<table class="table" id="manageReunionesTable">
 					<thead>
 						<tr>
-
 							<th>Tema</th>
-							<th>Tipo</th>
-							<th>Entidad</th>
 							<th>Fecha</th>
-							<th>Hora</th>
+							<th>Hora Inicio</th>
+							<th>Hora Fin</th>
+							<th>Tipo</th>
+							<th>Estado</th>
 							<th>Acta</th>
 							<th style="width: 15%;"> Acciones</th>
 

@@ -32,6 +32,7 @@
 						<?php    
 						// $connect->close();
 						}?>
+	
 					</select>
 				      <!-- <input type="text" class="form-control" id="entidadid" placeholder="Mandar 1 porque no vale" name="entidadid" autocomplete="off"> -->
 					</div>

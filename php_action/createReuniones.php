@@ -2,23 +2,24 @@
 
 require_once 'core.php';
 
+$aso_Id=$_SESSION['asoId'];
+
 $valid['success'] = array('success' => false, 'messages' => array());
 
 if($_POST) {	
     $ReunionesTema = $_POST['ReunionesTema'];
 	$ReunionesTipo = $_POST['ReunionesTipo'];
-    $ReunionesEntidad = $_POST['ReunionesEntidad'];
+
     $ReunionesFecha = $_POST['ReunionesFecha'];
     $ReunionesHora = $_POST['ReunionesHora'];
+	$ReunionesHoraFin = $_POST['ReunionesHoraFin'];
 	$ReunionesActa=$_POST['ReunionesActa'];
 
 
-    
-
  
 
-	$sql = "INSERT INTO reunion (TEMAREU, TIPOREU,TIPOREUNIONID ,ENTIDADID, FECHAINIREU, HORAREU, ACTA) 
-	VALUES ('$ReunionesTema','$ReunionesTipo', 2 ,'$ReunionesEntidad','$ReunionesFecha','$ReunionesHora', '$ReunionesActa')";
+	$sql = "INSERT INTO reunion (TEMAREU, TIPOREU,TIPOREUNIONID, FECHAINIREU, HORAREU, 	HORAFINREU, ACTA, ASOCIACIONID, STATUSREUID) 
+	VALUES ('$ReunionesTema','$ReunionesTipo', 2 ,'$ReunionesFecha','$ReunionesHora','$ReunionesHoraFin','$ReunionesActa',$aso_Id,1 )";
 
 	if($connect->query($sql) === TRUE) {
 	 	$valid['success'] = true;

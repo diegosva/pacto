@@ -23,9 +23,10 @@ $(document).ready(function() {
 
 			var ReunionesTema = $("#ReunionesTema").val();
 			var ReunionesTipo = $("#ReunionesTipo").val();
-			var ReunionesEntidad = $("#ReunionesEntidad").val();
+		
 			var ReunionesFecha = $("#ReunionesFecha").val();
 			var ReunionesHora = $("#ReunionesHora").val();
+			var ReunionesHoraFin = $("#ReunionesHoraFin").val();
 			var ReunionesActa = $("#ReunionesActa").val();
 		
 
@@ -50,17 +51,6 @@ $(document).ready(function() {
 				$("#ReunionesTipo").closest('.form-group').addClass('has-success');	  	
 			}
 		
-			if(ReunionesEntidad=="") {
-				$("#ReunionesEntidad").after('<p class="text-danger">Este campo es obligatorio</p>');
-				$('#ReunionesEntidad').closest('.form-group').addClass('has-error');
-			} else {
-				// remov error text field
-				$("#ReunionesEntidad").find('.text-danger').remove();
-				// success out for form 
-				$("#ReunionesEntidad").closest('.form-group').addClass('has-success');	  	
-			}
-
-
 			if(ReunionesFecha == "") {
 				$("#ReunionesFecha").after('<p class="text-danger">Este campo es obligatorio</p>');
 				$('#ReunionesFecha').closest('.form-group').addClass('has-error');
@@ -88,10 +78,19 @@ $(document).ready(function() {
 				// success out for form 
 				$("#ReunionesActa").closest('.form-group').addClass('has-success');	  	
 			}
+			if(ReunionesHoraFin == "") {
+				$("#ReunionesHoraFin").after('<p class="text-danger">Este campo es obligatorio</p>');
+				$('#ReunionesHoraFin').closest('.form-group').addClass('has-error');
+			} else {
+				// remov error text field
+				$("#ReunionesHoraFin").find('.text-danger').remove();
+				// success out for form 
+				$("#ReunionesHoraFin").closest('.form-group').addClass('has-success');	  	
+			}
 
 
 
-			if(ReunionesTema && ReunionesTipo  && ReunionesEntidad &&  ReunionesFecha && ReunionesHora && ReunionesActa ) {
+			if(ReunionesTema && ReunionesTipo  &&  ReunionesFecha && ReunionesHora && ReunionesActa && ReunionesHoraFin) {
 				var form = $(this);
 				// button loading
 				$("#createReunionesBtn").button('loading');
@@ -139,9 +138,7 @@ $(document).ready(function() {
 
 }); // /document
 
-
-
-// edit categories function
+// edit Reuniones function
 function editReuniones(reunionesId = null) {
 	if(reunionesId) {
 		// remove the added categories id 
@@ -179,14 +176,13 @@ function editReuniones(reunionesId = null) {
 				// set the categories name
 				$("#editReunionesTema").val(response.TEMAREU);
 
-				$("#editReunionesTipo").val(response.TIPOREU);
-				// set the categories status
-				$("#editReunionesEntidad").val(response.ENTIDADID);
-				// add the categories id 
 				$("#editReunionesFecha").val(response.FECHAINIREU);
+				// add the categories id 
+				$("#editReunionesHora").val(response.HORAREU);
+
+				$("#editReunionesHoraFin").val(response.HORAFINREU);
 
 				$("#editReunionesActa").val(response.ACTA);
-
 
 				
 				$(".editReunionesFooter").after('<input type="hidden" name="editReunionesId" id="editReunionesId" value="'+response.REUNIONID+'" />');
@@ -196,14 +192,14 @@ function editReuniones(reunionesId = null) {
 				// submit of edit categories form
 				$("#editReunionesForm").unbind('submit').bind('submit', function() {
 					
-					var ReunionesTema = $("#editReunionesTema").val();
-					var ReunionesTipo = $("#editReunionesTipo").val();
-					var ReunionesEntidad = $("#editReunionesEntidad").val();
-					var ReunionesFecha = $("#editReunionesFecha").val();
-					var ReunionesHora = $("#editReunionesHora").val();
-					var ReunionesActa = $("#editReunionesActa").val();
+					var TEMAREU = $("#editReunionesTema").val();
+					var FECHAINIREU = $("#editReunionesFecha").val();
+					var HORAREU = $("#editReunionesHora").val();
+					var HORAFINREU = $("#editReunionesHoraFin").val();
+					var ACTA = $("#editReunionesActa").val();
+	
 
-					if(ReunionesTema == "") {
+					if(TEMAREU == "") {
 						$("#editReunionesTema").after('<p class="text-danger">Este campo es obligatorio</p>');
 						$('#editReunionesTema').closest('.form-group').addClass('has-error');
 					} else {
@@ -212,25 +208,7 @@ function editReuniones(reunionesId = null) {
 						// success out for form 
 						$("#editReunionesTema").closest('.form-group').addClass('has-success');	  	
 					}
-					if(ReunionesTipo == "") {
-						$("#editReunionesTipo").after('<p class="text-danger">Este campo es obligatorio</p>');
-						$('#editReunionesTipo').closest('.form-group').addClass('has-error');
-					} else {
-						// remov error text field
-						$("#editReunionesTipo").find('.text-danger').remove();
-						// success out for form 
-						$("#editReunionesTipo").closest('.form-group').addClass('has-success');	  	
-					}
-					if(ReunionesEntidad == "") {
-						$("#editReunionesEntidad").after('<p class="text-danger">Este campo es obligatorio</p>');
-						$('#editReunionesEntidad').closest('.form-group').addClass('has-error');
-					} else {
-						// remov error text field
-						$("#editReunionesEntidad").find('.text-danger').remove();
-						// success out for form 
-						$("#editReunionesEntidad").closest('.form-group').addClass('has-success');	  	
-					}
-					if(ReunionesFecha == "") {
+					if(FECHAINIREU == "") {
 						$("#editReunionesFecha").after('<p class="text-danger">Este campo es obligatorio</p>');
 						$('#editReunionesFecha').closest('.form-group').addClass('has-error');
 					} else {
@@ -239,7 +217,7 @@ function editReuniones(reunionesId = null) {
 						// success out for form 
 						$("#editReunionesFecha").closest('.form-group').addClass('has-success');	  	
 					}
-					if(ReunionesHora == "") {
+					if(HORAREU == "") {
 						$("#editReunionesHora").after('<p class="text-danger">Este campo es obligatorio</p>');
 						$('#editReunionesHora').closest('.form-group').addClass('has-error');
 					} else {
@@ -248,7 +226,16 @@ function editReuniones(reunionesId = null) {
 						// success out for form 
 						$("#editReunionesHora").closest('.form-group').addClass('has-success');	  	
 					}
-					if(ReunionesActa == "") {
+					if(HORAFINREU == "") {
+						$("#editReunionesHoraFin").after('<p class="text-danger">Este campo es obligatorio</p>');
+						$('#editReunionesHoraFin').closest('.form-group').addClass('has-error');
+					} else {
+						// remov error text field
+						$("#editReunionesHoraFin").find('.text-danger').remove();
+						// success out for form 
+						$("#editReunionesHoraFin").closest('.form-group').addClass('has-success');	  	
+					}
+					if(ACTA == "") {
 						$("#editReunionesActa").after('<p class="text-danger">Este campo es obligatorio</p>');
 						$('#editReunionesActa').closest('.form-group').addClass('has-error');
 					} else {
@@ -256,11 +243,9 @@ function editReuniones(reunionesId = null) {
 						$("#editReunionesActa").find('.text-danger').remove();
 						// success out for form 
 						$("#editReunionesActa").closest('.form-group').addClass('has-success');	  	
-					}
+					}				
 
-					
-
-					if(ReunionesTema &&  ReunionesTipo && ReunionesEntidad && ReunionesFecha && ReunionesHora && ReunionesActa  ) {
+					if(TEMAREU && FECHAINIREU && HORAREU && HORAFINREU && ACTA) {
 						var form = $(this);
 						// button loading
 						$("#editReunionesBtn").button('loading');
@@ -309,115 +294,7 @@ function editReuniones(reunionesId = null) {
 	} else {
 		alert('Oops!! Refresh the page');
 	}
-} // /edit categories function
-
-
-function editReunionesActa(reunionesId = null) {
-	if(reunionesId) {
-		// remove the added categories id 
-		$('#editReunionesId').remove();
-		// reset the form text
-		$("#editReunionesActaForm")[0].reset();
-		// reset the form text-error
-		$(".text-danger").remove();
-		// reset the form group errro		
-		$('.form-group').removeClass('has-error').removeClass('has-success');
-
-		// edit categories messages
-		$("#edit-reuniones-messages").html("");
-		// modal spinner
-		$('.modal-loading').removeClass('div-hide');
-		// modal result
-		$('.edit-reuniones-result').addClass('div-hide');
-		//modal footer
-		$(".editReunionesActaFooter").addClass('div-hide');		
-
-		$.ajax({
-			url: 'php_action/fetchSelectedReuniones.php',
-			type: 'post',
-			data: {reunionesId: reunionesId},
-			dataType: 'json',
-			success:function(response) {
-
-				// modal spinner
-				$('.modal-loading').addClass('div-hide');
-				// modal result
-				$('.edit-reuniones-result').removeClass('div-hide');
-				//modal footer
-				$(".editReunionesActaFooter").removeClass('div-hide');	
-				$("#editReunionesActa").val(response.ACTA);
-				$(".editReunionesActaFooter").after('<input type="hidden" name="editReunionesId" id="editReunionesId" value="'+response.REUNIONID+'" />');
-				$("#editReunionesActaForm").unbind('submit').bind('submit', function() {
-					var ReunionesActa = $("#editReunionesActa").val();
-					if(ReunionesActa == "") {
-						$("#editReunionesActa").after('<p class="text-danger">Este campo es obligatorio</p>');
-						$('#editReunionesActa').closest('.form-group').addClass('has-error');
-					} else {
-						// remov error text field
-						$("#editReunionesActa").find('.text-danger').remove();
-						// success out for form 
-						$("#editReunionesActa").closest('.form-group').addClass('has-success');	  	
-					}
-					if(ReunionesActa) {
-						var form = $(this);
-						// button loading
-						$("#editReunionesActaBtn").button('loading');
-
-						$.ajax({
-							url : form.attr('action'),
-							type: form.attr('method'),
-							data: form.serialize(),
-							dataType: 'json',
-							success:function(response) {
-								// button loading
-								$("#editReunionesActaBtn").button('reset');
-
-								if(response.success == true) {
-									// reload the manage member table 
-									manageReunionesTable.ajax.reload(null, false);									  	  			
-									
-									// remove the error text
-									$(".text-danger").remove();
-									// remove the form error
-									$('.form-group').removeClass('has-error').removeClass('has-success');
-			  	  			
-			  	  			$('#edit-reuniones-messages').html('<div class="alert alert-success">'+
-			            '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
-			            '<strong><i class="glyphicon glyphicon-ok-sign"></i></strong> '+ response.messages +
-				          '</div>');
-
-			  	  			$(".alert-success").delay(500).show(10, function() {
-										$(this).delay(3000).hide(10, function() {
-											$(this).remove();
-										});
-									}); // /.alert
-								}  // if
-
-							} // /success
-						}); // /ajax	
-					} // if
-					return false;
-				}); // /submit of edit categories form
-
-			} // /success
-		}); // /fetch the selected categories data
-
-	} else {
-		alert('Oops!! Refresh the page');
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
+} // /edit reuniones function
 
 
 
@@ -486,3 +363,5 @@ function removeReuniones(reunionesId = null) {
 		} // /response
 	}); // /ajax function to fetch the categories data
 } // remove categories function
+
+

@@ -4,24 +4,20 @@ require_once 'core.php';
 
 $valid['success'] = array('success' => false, 'messages' => array());
 
-if($_POST) {	
-
-
+if($_POST) {
+	
+	
     $ReunionesTema = $_POST['editReunionesTema'];
-	$ReunionesTipo = $_POST['editReunionesTipo'];
-    $ReunionesEntidad = $_POST['editReunionesEntidad'];
     $ReunionesFecha = $_POST['editReunionesFecha'];
     $ReunionesHora = $_POST['editReunionesHora'];
-	$ReunionesActa = $_POST['editReunionesActa'];
-	$reunionesId = $_POST['editReunionesId'];
-
-	
-	$sql = "UPDATE reunion 	
+	$ReunionesHoraFin = $_POST['editReunionesHoraFin'];
+	$ReunionesActa=$_POST['editReunionesActa'];
+	$reunionesId=$_POST['editReunionesId'];
+	$sql = "UPDATE REUNION 	
     SET TEMAREU = '$ReunionesTema',
-	 	TIPOREU = '$ReunionesTipo', 
-	    ENTIDADID ='$ReunionesEntidad',
-	 	FECHAINIREU ='$ReunionesFecha', 
-	    HORAREU ='$ReunionesHora', 
+	 	FECHAINIREU = '$ReunionesFecha', 
+	    HORAREU ='$ReunionesHora',
+	 	HORAFINREU ='$ReunionesHoraFin', 
 		ACTA ='$ReunionesActa'
     
      WHERE REUNIONID = $reunionesId ";
